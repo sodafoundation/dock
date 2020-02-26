@@ -148,7 +148,6 @@ func TestCreateVolume(t *testing.T) {
 		Size:             sizeInt,
 		Description:      "test description",
 		AvailabilityZone: "default",
-		ProfileId:        "profileid",
 		PoolId:           "poolid",
 		PoolName:         poolname,
 		Metadata:         map[string]string{},
@@ -252,7 +251,6 @@ func TestExtendVolume(t *testing.T) {
 		Size:             sizeInt,
 		Description:      "test description",
 		AvailabilityZone: "default",
-		ProfileId:        "profileid",
 		PoolId:           "poolid",
 		PoolName:         poolname,
 		Metadata: map[string]string{

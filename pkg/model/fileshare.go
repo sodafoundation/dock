@@ -42,9 +42,6 @@ type FileShareAclSpec struct {
 	// One of: "available", "error" etc.
 	Status string `json:"status,omitempty"`
 
-	// The uuid of the profile which the fileshare belongs to.
-	ProfileId string `json:"profileId,omitempty"`
-
 	// Metadata should be kept until the scemantics between opensds fileshare
 	// and backend storage resouce description are clear.
 	// +optional
@@ -87,9 +84,6 @@ type FileShareSpec struct {
 	// The uuid of the pool which the fileshare belongs to.
 	// +readOnly
 	PoolId string `json:"poolId,omitempty"`
-
-	// The uuid of the profile which the fileshare belongs to.
-	ProfileId string `json:"profileId,omitempty"`
 
 	// The uuid of the snapshot which the fileshare is created
 	SnapshotId string `json:"snapshotId,omitempty"`
@@ -137,9 +131,6 @@ type FileShareSnapshotSpec struct {
 	// The status of the fileshare snapshot.
 	// One of: "available", "error", etc.
 	Status string `json:"status,omitempty"`
-
-	// The uuid of the profile which the fileshare belongs to.
-	ProfileId string `json:"profileId,omitempty"`
 
 	// Metadata should be kept until the scemantics between opensds fileshare
 	// and backend storage resouce description are clear.

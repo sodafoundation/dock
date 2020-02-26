@@ -82,7 +82,6 @@ func Test_dockServer_CreateFileShareAcl(t *testing.T) {
 		Port            string
 		Discoverer      discovery.DockDiscoverer
 		Driver          drivers.VolumeDriver
-		MetricDriver    drivers.MetricDriver
 		FileShareDriver filesharedrivers.FileShareDriver
 	}
 	type args struct {
@@ -121,7 +120,6 @@ func Test_dockServer_CreateFileShareAcl(t *testing.T) {
 				Port:            tt.fields.Port,
 				Discoverer:      tt.fields.Discoverer,
 				Driver:          tt.fields.Driver,
-				MetricDriver:    tt.fields.MetricDriver,
 				FileShareDriver: tt.fields.FileShareDriver,
 			}
 			_, err := ds.CreateFileShareAcl(tt.args.ctx, tt.args.opt)
@@ -137,7 +135,6 @@ func Test_dockServer_DeleteFileShareAcl(t *testing.T) {
 		Port            string
 		Discoverer      discovery.DockDiscoverer
 		Driver          drivers.VolumeDriver
-		MetricDriver    drivers.MetricDriver
 		FileShareDriver filesharedrivers.FileShareDriver
 	}
 	type args struct {
@@ -169,7 +166,6 @@ func Test_dockServer_DeleteFileShareAcl(t *testing.T) {
 				Port:            tt.fields.Port,
 				Discoverer:      tt.fields.Discoverer,
 				Driver:          tt.fields.Driver,
-				MetricDriver:    tt.fields.MetricDriver,
 				FileShareDriver: tt.fields.FileShareDriver,
 			}
 			_, err := ds.DeleteFileShareAcl(tt.args.ctx, tt.args.opt)
@@ -185,21 +181,18 @@ func Test_dockServer_CreateFileShare(t *testing.T) {
 		Port            string
 		Discoverer      discovery.DockDiscoverer
 		Driver          drivers.VolumeDriver
-		MetricDriver    drivers.MetricDriver
 		FileShareDriver filesharedrivers.FileShareDriver
 	}
 	type args struct {
 		ctx context.Context
 		opt *pb.CreateFileShareOpts
 	}
-	prf := &data.SampleFileShareProfiles[0]
 	var req = &pb.CreateFileShareOpts{
 		Id:          "bd5b12a8-a101-11e7-941e-d77981b584d8",
 		Name:        "sample-fileshare",
 		Description: "This is a sample fileshare for testing",
 		Size:        1,
 		PoolId:      "084bf71e-a102-11e7-88a8-e31fe6d52248",
-		Profile:     prf.ToJson(),
 	}
 	want1 := &pb.GenericResponse{
 		Reply: &pb.GenericResponse_Result_{
@@ -226,7 +219,6 @@ func Test_dockServer_CreateFileShare(t *testing.T) {
 				Port:            tt.fields.Port,
 				Discoverer:      tt.fields.Discoverer,
 				Driver:          tt.fields.Driver,
-				MetricDriver:    tt.fields.MetricDriver,
 				FileShareDriver: tt.fields.FileShareDriver,
 			}
 			_, err := ds.CreateFileShare(tt.args.ctx, tt.args.opt)
@@ -242,7 +234,6 @@ func Test_dockServer_DeleteFileShare(t *testing.T) {
 		Port            string
 		Discoverer      discovery.DockDiscoverer
 		Driver          drivers.VolumeDriver
-		MetricDriver    drivers.MetricDriver
 		FileShareDriver filesharedrivers.FileShareDriver
 	}
 	type args struct {
@@ -274,7 +265,6 @@ func Test_dockServer_DeleteFileShare(t *testing.T) {
 				Port:            tt.fields.Port,
 				Discoverer:      tt.fields.Discoverer,
 				Driver:          tt.fields.Driver,
-				MetricDriver:    tt.fields.MetricDriver,
 				FileShareDriver: tt.fields.FileShareDriver,
 			}
 			_, err := ds.DeleteFileShare(tt.args.ctx, tt.args.opt)
@@ -290,7 +280,6 @@ func Test_dockServer_CreateFileShareSnapshot(t *testing.T) {
 		Port            string
 		Discoverer      discovery.DockDiscoverer
 		Driver          drivers.VolumeDriver
-		MetricDriver    drivers.MetricDriver
 		FileShareDriver filesharedrivers.FileShareDriver
 	}
 	type args struct {
@@ -329,7 +318,6 @@ func Test_dockServer_CreateFileShareSnapshot(t *testing.T) {
 				Port:            tt.fields.Port,
 				Discoverer:      tt.fields.Discoverer,
 				Driver:          tt.fields.Driver,
-				MetricDriver:    tt.fields.MetricDriver,
 				FileShareDriver: tt.fields.FileShareDriver,
 			}
 			_, err := ds.CreateFileShareSnapshot(tt.args.ctx, tt.args.opt)
@@ -346,7 +334,6 @@ func Test_dockServer_DeleteFileShareSnapshot(t *testing.T) {
 		Port            string
 		Discoverer      discovery.DockDiscoverer
 		Driver          drivers.VolumeDriver
-		MetricDriver    drivers.MetricDriver
 		FileShareDriver filesharedrivers.FileShareDriver
 	}
 	type args struct {
@@ -378,7 +365,6 @@ func Test_dockServer_DeleteFileShareSnapshot(t *testing.T) {
 				Port:            tt.fields.Port,
 				Discoverer:      tt.fields.Discoverer,
 				Driver:          tt.fields.Driver,
-				MetricDriver:    tt.fields.MetricDriver,
 				FileShareDriver: tt.fields.FileShareDriver,
 			}
 			_, err := ds.DeleteFileShareSnapshot(tt.args.ctx, tt.args.opt)

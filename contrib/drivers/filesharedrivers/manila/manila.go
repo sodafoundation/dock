@@ -21,9 +21,7 @@ Go SDK.
 package manila
 
 import (
-	"encoding/json"
 	"errors"
-	"fmt"
 	"strings"
 	"time"
 
@@ -153,11 +151,7 @@ func (d *Driver) ListPools() ([]*model.StoragePoolSpec, error) {
 
 // CreateFileShare implementation
 func (d *Driver) CreateFileShare(opt *pb.CreateFileShareOpts) (*model.FileShareSpec, error) {
-	prf := opt.GetProfile()
-	shareProto, err := d.GetProtoFromProfile(prf)
-	if err != nil {
-		return nil, err
-	}
+	shareProto := opt.GetAccessProtocol()
 
 	// Configure create request body.
 	opts := &sharesv2.CreateOpts{
@@ -438,28 +432,4 @@ func (d *Driver) PullFileShareSnapshot(ID string) (*model.FileShareSnapshotSpec,
 
 	log.V(5).Infof("function PullFileShareSnapshot succeeded, snapshot:%+v\n", respShareSnap)
 	return &respShareSnap, nil
-}
-
-// GetProtoFromProfile implementation
-func (d *Driver) GetProtoFromProfile(prf string) (string, error) {
-	if prf == "" {
-		msg := "profile cannot be empty"
-		return "", errors.New(msg)
-	}
-
-	log.V(5).Infof("file share profile is %s", prf)
-	profile := &model.ProfileSpec{}
-	err := json.Unmarshal([]byte(prf), profile)
-	if err != nil {
-		msg := fmt.Sprintf("unmarshal profile failed: %v", err)
-		return "", errors.New(msg)
-	}
-
-	shareProto := profile.ProvisioningProperties.IOConnectivity.AccessProtocol
-	if shareProto == "" {
-		msg := "file share protocol cannot be empty"
-		return "", errors.New(msg)
-	}
-
-	return shareProto, nil
 }

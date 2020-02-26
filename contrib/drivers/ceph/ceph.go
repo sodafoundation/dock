@@ -49,6 +49,7 @@ const (
 const (
 	KPoolName  = "CephPoolName"
 	KImageName = "CephImageName"
+	SnapshotCloudBucket = "bucket"
 )
 
 type CephConfig struct {
@@ -403,14 +404,14 @@ func (d *Driver) uploadSnapshotToCloud(opt *pb.CreateVolumeSnapshotOpts, bucket 
 
 	b := &backup.BackupSpec{
 		Id:       uuid.NewV4().String(),
-		Metadata: map[string]string{"bucket": bucket},
+		Metadata: map[string]string{SnapshotCloudBucket: bucket},
 	}
 	if err := bk.Backup(b, file); err != nil {
 		log.Errorf("upload snapshot to multi-cloud failed, err: %v", err)
 		return nil, err
 	}
 
-	return map[string]string{"backupId": b.Id, "bucket": bucket}, nil
+	return map[string]string{"backupId": b.Id, SnapshotCloudBucket: bucket}, nil
 }
 
 func (d *Driver) downloadSnapshotFromCloud(opt *pb.CreateVolumeOpts) error {
@@ -419,7 +420,7 @@ func (d *Driver) downloadSnapshotFromCloud(opt *pb.CreateVolumeOpts) error {
 	if !ok {
 		return errors.New("can't find backupId in metadata")
 	}
-	bucket, ok := data["bucket"]
+	bucket, ok := data[SnapshotCloudBucket]
 	if !ok {
 		return errors.New("can't find bucket name in metadata")
 	}
@@ -464,7 +465,7 @@ func (d *Driver) downloadSnapshotFromCloud(opt *pb.CreateVolumeOpts) error {
 	defer bk.CleanUp()
 
 	b := &backup.BackupSpec{
-		Metadata: map[string]string{"bucket": bucket},
+		Metadata: map[string]string{SnapshotCloudBucket: bucket},
 	}
 	if err := bk.Restore(b, backupId, file); err != nil {
 		log.Errorf("upload snapshot to multi-cloud failed, err: %v", err)
@@ -489,7 +490,7 @@ func (d *Driver) deleteUploadedSnapshot(backupId string, bucket string) error {
 
 	b := &backup.BackupSpec{
 		Id:       backupId,
-		Metadata: map[string]string{"bucket": bucket},
+		Metadata: map[string]string{SnapshotCloudBucket: bucket},
 	}
 
 	if err := bk.Delete(b); err != nil {
@@ -520,8 +521,7 @@ func (d *Driver) CreateSnapshot(opt *pb.CreateVolumeSnapshotOpts) (*model.Volume
 	}
 
 	// upload to cloud
-	profile := model.NewProfileFromJson(opt.GetProfile())
-	bucket := profile.SnapshotProperties.Topology.Bucket
+	bucket := opt.GetMetadata()[SnapshotCloudBucket]
 	if len(bucket) != 0 {
 		updateMetadata, err := d.uploadSnapshotToCloud(opt, bucket, mgr)
 		if err != nil {
@@ -585,7 +585,7 @@ func (d *Driver) deleteSnapshot(poolName, volumeId, snapshotId string, mgr *SrcM
 }
 
 func (d *Driver) DeleteSnapshot(opt *pb.DeleteVolumeSnapshotOpts) error {
-	if bucket, ok := opt.Metadata["bucket"]; ok {
+	if bucket, ok := opt.Metadata[SnapshotCloudBucket]; ok {
 		log.Info("remove snapshot in cloud :", bucket)
 		if err := d.deleteUploadedSnapshot(opt.Metadata["backupId"], bucket); err != nil {
 			return err

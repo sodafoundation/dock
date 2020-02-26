@@ -73,8 +73,6 @@ type ReplicationSpec struct {
 	ReplicationPeriod int64 `json:"replicationPeriod,omitempty"`
 	// replication period
 	ReplicationBandwidth int64 `json:"replicationBandwidth,omitempty"`
-	// profile id
-	ProfileId string `json:"profileId,omitempty"`
 	// pool id
 	PoolId string `json:"poolId,omitempty"`
 	// metadata

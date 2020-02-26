@@ -19,8 +19,6 @@ go get -v github.com/vektra/mockery/.../
 
 # Auto-generate some fake objects in db module for mocking work.
 mockery -name Client -dir ../pkg/db -output ./db/testing -case underscore
-# Auto-generate some fake objects in controller and dock module for mocking work.
-mockery -name Client -dir ../pkg/controller/client -output ./controller/testing -case underscore
 mockery -name Client -dir ../pkg/dock/client -output ./dock/testing -case underscore
 # Auto-generate some fake objects in driver module for mocking work.
 mockery -name VolumeDriver -dir ../contrib/drivers -output ./driver/testing -case underscore

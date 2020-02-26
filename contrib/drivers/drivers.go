@@ -22,7 +22,6 @@ plugin, just modify Init() and Clean() method.
 package drivers
 
 import (
-	_ "github.com/opensds/opensds/contrib/backup/multicloud"
 	"github.com/opensds/opensds/contrib/drivers/ceph"
 	"github.com/opensds/opensds/contrib/drivers/fujitsu/eternus"
 	"github.com/opensds/opensds/contrib/drivers/hpe/nimble"
@@ -151,49 +150,5 @@ func Clean(d VolumeDriver) VolumeDriver {
 	d.Unset()
 	d = nil
 
-	return d
-}
-
-func CleanMetricDriver(d MetricDriver) MetricDriver {
-	// Execute different clean operations according to the MetricDriver type.
-	switch d.(type) {
-	case *lvm.MetricDriver:
-		break
-	default:
-		break
-	}
-	_ = d.Teardown()
-	d = nil
-
-	return d
-}
-
-type MetricDriver interface {
-	//Any initialization the metric driver does while starting.
-	Setup() error
-	//Any operation the metric driver does while stopping.
-	Teardown() error
-	// Collect metrics for all supported resources
-	CollectMetrics() ([]*model.MetricSpec, error)
-}
-
-// Init
-func InitMetricDriver(resourceType string) MetricDriver {
-	var d MetricDriver
-	switch resourceType {
-	case config.LVMDriverType:
-		d = &lvm.MetricDriver{}
-		break
-	case config.CephDriverType:
-		d = &ceph.MetricDriver{}
-		break
-	case config.HuaweiOceanStorBlockDriverType:
-		d = &oceanstor.MetricDriver{}
-		break
-	default:
-		//d = &sample.Driver{}
-		break
-	}
-	d.Setup()
 	return d
 }
