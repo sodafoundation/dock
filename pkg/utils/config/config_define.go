@@ -20,14 +20,6 @@ type Default struct{}
 
 type OsdsDock struct {
 	ApiEndpoint                string        `conf:"api_endpoint,localhost:50050"`
-	RestEndpoint                string        `conf:"rest_endpoint,localhost:50051"`
-	AuthStrategy               string        `conf:"auth_strategy,noauth"`
-	ApiSpecPath                string        `conf:"api_spec_path,/etc/opensds/swagger.yaml"`
-	PolicyPath                 string        `conf:"policy_path,/etc/opensds/policy.json"`
-	HTTPSEnabled               bool          `conf:"https_enabled,false"`
-	BeegoHTTPSCertFile         string        `conf:"beego_https_cert_file,/opt/opensds-security/opensds/opensds-cert.pem"`
-	BeegoHTTPSKeyFile          string        `conf:"beego_https_key_file,/opt/opensds-security/opensds/opensds-key.pem"`
-	BeegoServerTimeOut         int64         `conf:"beego_server_time_out,120"`
 	DockType                   string        `conf:"dock_type,provisioner"`
 	EnabledBackends            []string      `conf:"enabled_backends,lvm"`
 	Daemon                     bool          `conf:"daemon,false"`

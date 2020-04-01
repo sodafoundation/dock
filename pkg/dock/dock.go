@@ -52,6 +52,8 @@ type dockServer struct {
 	// Driver represents the specified backend resource. This field is used
 	// for initializing the specified volume driver.
 	Driver drivers.VolumeDriver
+	// Metrics driver to collect metrics
+	MetricDriver drivers.MetricDriver
 
 	// FileShareDriver represents the specified backend resource. This field is used
 	// for initializing the specified file share driver.
@@ -298,7 +300,6 @@ func (ds *dockServer) CreateReplication(ctx context.Context, opt *pb.CreateRepli
 	}
 
 	replica.PoolId = opt.GetPoolId()
-	//replica.ProfileId = opt.GetProfileId()
 	replica.Name = opt.GetName()
 
 	return pb.GenericResponseResult(replica), nil
@@ -460,6 +461,24 @@ func (ds *dockServer) deleteGroupGeneric(opt *pb.DeleteVolumeGroupOpts) error {
 	return nil
 }
 
+// Collect the specified metrics from the metric driver
+func (ds *dockServer) CollectMetrics(ctx context.Context, opt *pb.CollectMetricsOpts) (*pb.GenericResponse, error) {
+	log.V(5).Info("in dock CollectMetrics methods")
+	ds.MetricDriver = drivers.InitMetricDriver(opt.GetDriverName())
+
+	defer drivers.CleanMetricDriver(ds.MetricDriver)
+
+	log.Infof("dock server receive CollectMetrics request, vr =%s", opt)
+
+	result, err := ds.MetricDriver.CollectMetrics()
+	if err != nil {
+		log.Errorf("error occurred in dock module for collect metrics: %s", err.Error())
+		return pb.GenericResponseError(err), err
+	}
+
+	return pb.GenericResponseResult(result), nil
+}
+
 // CreateFileShareAcl implements pb.DockServer.CreateFileShare
 func (ds *dockServer) CreateFileShareAcl(ctx context.Context, opt *pb.CreateFileShareAclOpts) (*pb.GenericResponse, error) {
 	// Get the storage drivers and do some initializations.
@@ -559,6 +578,12 @@ func (ds *dockServer) DeleteFileShareSnapshot(ctx context.Context, opt *pb.Delet
 	}
 
 	return pb.GenericResponseResult(nil), nil
+}
+
+// GetMetrics method is only defined to make ProvisioinDock service consistent with
+// ProvisionController service, so this method is not allowed to be called.
+func (ds *dockServer) GetMetrics(context.Context, *pb.GetMetricsOpts) (*pb.GenericResponse, error) {
+	return nil, &model.NotImplementError{"method GetMetrics has not been implemented yet"}
 }
 
 // GetUrls method is only defined to make ProvisioinDock service consistent with
