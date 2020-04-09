@@ -18,7 +18,7 @@ import (
 	"time"
 
 	log "github.com/golang/glog"
-	pb "github.com/opensds/opensds/pkg/model/proto"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/connectivity"
 	"google.golang.org/grpc/keepalive"

@@ -34,7 +34,7 @@ prebuild:
 .PHONY: osdsdock docker test protoc goimports
 
 osdsdock:
-	go build -ldflags '-w -s' -o $(BUILD_DIR)/bin/osdsdock github.com/opensds/opensds/cmd/osdsdock
+	go build -ldflags '-w -s' -o $(BUILD_DIR)/bin/osdsdock github.com/sodafoundation/dock/cmd/osdsdock
 
 docker: build
 	cp $(BUILD_DIR)/bin/osdsdock ./cmd/osdsdock

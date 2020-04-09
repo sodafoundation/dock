@@ -29,7 +29,7 @@ import (
 	"github.com/gophercloud/gophercloud"
 	"github.com/gophercloud/gophercloud/openstack"
 	"github.com/gophercloud/gophercloud/openstack/identity/v3/tokens"
-	"github.com/opensds/opensds/pkg/utils/pwd"
+	"github.com/sodafoundation/dock/pkg/utils/pwd"
 )
 
 const (

@@ -23,9 +23,9 @@ import (
 
 	"github.com/astaxie/beego/httplib"
 	log "github.com/golang/glog"
-	"github.com/opensds/opensds/contrib/drivers/utils"
-	. "github.com/opensds/opensds/contrib/drivers/utils/config"
-	pb "github.com/opensds/opensds/pkg/model/proto"
+	"github.com/sodafoundation/dock/contrib/drivers/utils"
+	. "github.com/sodafoundation/dock/contrib/drivers/utils/config"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
 )
 
 const (

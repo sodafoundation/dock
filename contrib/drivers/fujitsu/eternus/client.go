@@ -24,7 +24,7 @@ import (
 	"strings"
 
 	log "github.com/golang/glog"
-	"github.com/opensds/opensds/pkg/utils/pwd"
+	"github.com/sodafoundation/dock/pkg/utils/pwd"
 	"golang.org/x/crypto/ssh"
 	yaml "gopkg.in/yaml.v2"
 )

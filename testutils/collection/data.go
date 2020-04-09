@@ -20,7 +20,7 @@ This package includes a collection of fake stuffs for testing work.
 package collection
 
 import (
-	"github.com/opensds/opensds/pkg/model"
+	"github.com/sodafoundation/dock/pkg/model"
 )
 
 var (
@@ -545,7 +545,7 @@ var (
 
 // The Byte*** variable here is designed for unit test in client package.
 // For how to ultilize these pre-assigned variables, please refer to
-// (github.com/opensds/opensds/client/dock_test.go).
+// (github.com/sodafoundation/dock/client/dock_test.go).
 var (
 
 	ByteDock = `{
@@ -957,7 +957,7 @@ var (
 
 // The StringSlice*** variable here is designed for unit test in etcd package.
 // For how to ultilize these pre-assigned variables, please refer to
-// (github.com/opensds/opensds/pkg/db/drivers/etcd/etcd_test.go).
+// (github.com/sodafoundation/dock/pkg/db/drivers/etcd/etcd_test.go).
 var (
 
 	StringSliceDocks = []string{

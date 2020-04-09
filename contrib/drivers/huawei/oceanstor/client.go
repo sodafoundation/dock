@@ -25,9 +25,9 @@ import (
 
 	"github.com/astaxie/beego/httplib"
 	log "github.com/golang/glog"
-	pb "github.com/opensds/opensds/pkg/model/proto"
-	"github.com/opensds/opensds/pkg/utils"
-	"github.com/opensds/opensds/pkg/utils/pwd"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
+	"github.com/sodafoundation/dock/pkg/utils"
+	"github.com/sodafoundation/dock/pkg/utils/pwd"
 )
 
 type ArrayInnerError struct {

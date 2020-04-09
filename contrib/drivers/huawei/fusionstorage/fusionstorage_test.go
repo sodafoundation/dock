@@ -18,9 +18,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/opensds/opensds/contrib/drivers/utils/config"
-	. "github.com/opensds/opensds/contrib/drivers/utils/config"
-	"github.com/opensds/opensds/pkg/model"
+	"github.com/sodafoundation/dock/contrib/drivers/utils/config"
+	. "github.com/sodafoundation/dock/contrib/drivers/utils/config"
+	"github.com/sodafoundation/dock/pkg/model"
 )
 
 func TestSetup(t *testing.T) {

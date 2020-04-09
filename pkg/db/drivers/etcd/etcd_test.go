@@ -25,9 +25,9 @@ import (
 	"strings"
 	"testing"
 
-	c "github.com/opensds/opensds/pkg/context"
-	"github.com/opensds/opensds/pkg/model"
-	. "github.com/opensds/opensds/testutils/collection"
+	c "github.com/sodafoundation/dock/pkg/context"
+	"github.com/sodafoundation/dock/pkg/model"
+	. "github.com/sodafoundation/dock/testutils/collection"
 )
 
 type fakeClientCaller struct{}

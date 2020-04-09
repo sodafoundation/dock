@@ -28,9 +28,9 @@ import (
 	"strings"
 	"time"
 
-	pb "github.com/opensds/opensds/pkg/model/proto"
-	"github.com/opensds/opensds/pkg/utils/exec"
-	"github.com/opensds/opensds/pkg/utils/pwd"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
+	"github.com/sodafoundation/dock/pkg/utils/exec"
+	"github.com/sodafoundation/dock/pkg/utils/pwd"
 )
 
 var CliErrorMap = map[string]string{

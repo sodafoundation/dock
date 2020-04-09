@@ -28,5 +28,5 @@ split_line(){
 
 # Start unit test.
 split_line "Start unit test"
-go test -v github.com/opensds/opensds/pkg/... -cover
-go test -v github.com/opensds/opensds/contrib/... -cover
+go test -v github.com/sodafoundation/dock/pkg/... -cover
+go test -v github.com/sodafoundation/dock/contrib/... -cover

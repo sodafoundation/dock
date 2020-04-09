@@ -23,7 +23,7 @@ import (
 	"io/ioutil"
 
 	log "github.com/golang/glog"
-	"github.com/opensds/opensds/pkg/model"
+	"github.com/sodafoundation/dock/pkg/model"
 	"gopkg.in/yaml.v2"
 )
 

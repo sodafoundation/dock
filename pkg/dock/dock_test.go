@@ -23,12 +23,12 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/opensds/opensds/contrib/drivers"
-	"github.com/opensds/opensds/contrib/drivers/filesharedrivers"
-	"github.com/opensds/opensds/pkg/dock/discovery"
-	"github.com/opensds/opensds/pkg/model"
-	pb "github.com/opensds/opensds/pkg/model/proto"
-	data "github.com/opensds/opensds/testutils/collection"
+	"github.com/sodafoundation/dock/contrib/drivers"
+	"github.com/sodafoundation/dock/contrib/drivers/filesharedrivers"
+	"github.com/sodafoundation/dock/pkg/dock/discovery"
+	"github.com/sodafoundation/dock/pkg/model"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
+	data "github.com/sodafoundation/dock/testutils/collection"
 )
 
 func NewFakeDockServer() *dockServer {

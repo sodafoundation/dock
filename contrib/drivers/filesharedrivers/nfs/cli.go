@@ -22,7 +22,7 @@ import (
 	"strings"
 
 	"github.com/golang/glog"
-	"github.com/opensds/opensds/pkg/utils/exec"
+	"github.com/sodafoundation/dock/pkg/utils/exec"
 )
 
 type Cli struct {

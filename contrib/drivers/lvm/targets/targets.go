@@ -14,7 +14,7 @@
 
 package targets
 
-import "github.com/opensds/opensds/contrib/drivers/utils/config"
+import "github.com/sodafoundation/dock/contrib/drivers/utils/config"
 
 const (
 	iscsiTgtPrefix  = "iqn.2017-10.io.opensds:"

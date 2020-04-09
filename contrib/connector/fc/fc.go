@@ -15,7 +15,7 @@
 package fc
 
 import (
-	"github.com/opensds/opensds/contrib/connector"
+	"github.com/sodafoundation/dock/contrib/connector"
 )
 
 // FC struct

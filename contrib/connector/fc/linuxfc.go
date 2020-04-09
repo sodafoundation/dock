@@ -21,7 +21,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/opensds/opensds/contrib/connector"
+	"github.com/sodafoundation/dock/contrib/connector"
 )
 
 func getSCSIWWN(devicePath string) (string, error) {

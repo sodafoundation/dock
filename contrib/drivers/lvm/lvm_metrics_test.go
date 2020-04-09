@@ -20,8 +20,8 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/opensds/opensds/pkg/model"
-	"github.com/opensds/opensds/pkg/utils/exec"
+	"github.com/sodafoundation/dock/pkg/model"
+	"github.com/sodafoundation/dock/pkg/utils/exec"
 )
 
 var metricMap map[string]float64 = map[string]float64{"iops": 3.16, "read_throughput": 4.17, "write_throughput": 134.74, "response_time": 2.67, "service_time": 4.00, "utilization": 1.26}

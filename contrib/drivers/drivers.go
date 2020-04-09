@@ -22,19 +22,19 @@ plugin, just modify Init() and Clean() method.
 package drivers
 
 import (
-	"github.com/opensds/opensds/contrib/drivers/ceph"
-	"github.com/opensds/opensds/contrib/drivers/fujitsu/eternus"
-	"github.com/opensds/opensds/contrib/drivers/hpe/nimble"
-	"github.com/opensds/opensds/contrib/drivers/huawei/fusionstorage"
-	"github.com/opensds/opensds/contrib/drivers/huawei/oceanstor"
-	"github.com/opensds/opensds/contrib/drivers/ibm/spectrumscale"
-	"github.com/opensds/opensds/contrib/drivers/lvm"
-	"github.com/opensds/opensds/contrib/drivers/netapp/ontap"
-	"github.com/opensds/opensds/contrib/drivers/openstack/cinder"
-	"github.com/opensds/opensds/contrib/drivers/utils/config"
-	"github.com/opensds/opensds/pkg/model"
-	pb "github.com/opensds/opensds/pkg/model/proto"
-	sample "github.com/opensds/opensds/testutils/driver"
+	"github.com/sodafoundation/dock/contrib/drivers/ceph"
+	"github.com/sodafoundation/dock/contrib/drivers/fujitsu/eternus"
+	"github.com/sodafoundation/dock/contrib/drivers/hpe/nimble"
+	"github.com/sodafoundation/dock/contrib/drivers/huawei/fusionstorage"
+	"github.com/sodafoundation/dock/contrib/drivers/huawei/oceanstor"
+	"github.com/sodafoundation/dock/contrib/drivers/ibm/spectrumscale"
+	"github.com/sodafoundation/dock/contrib/drivers/lvm"
+	"github.com/sodafoundation/dock/contrib/drivers/netapp/ontap"
+	"github.com/sodafoundation/dock/contrib/drivers/openstack/cinder"
+	"github.com/sodafoundation/dock/contrib/drivers/utils/config"
+	"github.com/sodafoundation/dock/pkg/model"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
+	sample "github.com/sodafoundation/dock/testutils/driver"
 )
 
 // VolumeDriver is an interface for exposing some operations of different volume

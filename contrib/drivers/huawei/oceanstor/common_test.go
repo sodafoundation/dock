@@ -22,7 +22,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/opensds/opensds/pkg/utils"
+	"github.com/sodafoundation/dock/pkg/utils"
 )
 
 func TestEncodeName(t *testing.T) {
