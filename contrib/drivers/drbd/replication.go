@@ -20,9 +20,9 @@ import (
 
 	"github.com/LINBIT/godrbdutils"
 	log "github.com/golang/glog"
-	"github.com/opensds/opensds/contrib/drivers/utils/config"
-	"github.com/opensds/opensds/pkg/model"
-	pb "github.com/opensds/opensds/pkg/model/proto"
+	"github.com/sodafoundation/dock/contrib/drivers/utils/config"
+	"github.com/sodafoundation/dock/pkg/model"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
 )
 
 // ReplicationDriver

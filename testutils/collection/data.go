@@ -20,96 +20,10 @@ This package includes a collection of fake stuffs for testing work.
 package collection
 
 import (
-	"github.com/opensds/opensds/pkg/model"
+	"github.com/sodafoundation/dock/pkg/model"
 )
 
 var (
-	SampleProfiles = []model.ProfileSpec{
-		{
-			BaseModel: &model.BaseModel{
-				Id: "1106b972-66ef-11e7-b172-db03f3689c9c",
-			},
-			Name:             "default",
-			Description:      "default policy",
-			StorageType:      "block",
-			CustomProperties: model.CustomPropertiesSpec{},
-		},
-		{
-			BaseModel: &model.BaseModel{
-				Id: "2f9c0a04-66ef-11e7-ade2-43158893e017",
-			},
-			Name:        "silver",
-			Description: "silver policy",
-			StorageType: "block",
-			CustomProperties: model.CustomPropertiesSpec{
-				"dataStorage": map[string]interface{}{
-					"provisioningPolicy": "Thin",
-					"compression":        true,
-					"deduplication":      true,
-				},
-				"ioConnectivity": map[string]interface{}{
-					"accessProtocol": "rbd",
-					"maxIOPS":        float64(5000000),
-					"maxBWS":         float64(500),
-					"minIOPS":        float64(1000000),
-					"minBWS":         float64(100),
-					"latency":        float64(100),
-				},
-			},
-		},
-	}
-
-	SampleFileShareProfiles = []model.ProfileSpec{
-		{
-			BaseModel: &model.BaseModel{
-				Id: "1106b972-66ef-11e7-b172-db03f3689c9c",
-			},
-			Name:             "default",
-			Description:      "default policy",
-			StorageType:      "file",
-			CustomProperties: model.CustomPropertiesSpec{},
-		},
-		{
-			BaseModel: &model.BaseModel{
-				Id: "2f9c0a04-66ef-11e7-ade2-43158893e017",
-			},
-			Name:        "silver",
-			Description: "silver policy",
-			StorageType: "file",
-			CustomProperties: model.CustomPropertiesSpec{
-				"dataStorage": map[string]interface{}{
-					"provisioningPolicy": "Thin",
-					"compression":        true,
-					"deduplication":      false,
-				},
-				"ioConnectivity": map[string]interface{}{
-					"accessProtocol": "NFS",
-					"maxIOPS":        float64(5000000),
-					"maxBWS":         float64(500),
-					"minIOPS":        float64(1000000),
-					"minBWS":         float64(100),
-					"latency":        float64(100),
-				},
-			},
-		},
-	}
-
-	SampleCustomProperties = model.CustomPropertiesSpec{
-		"dataStorage": map[string]interface{}{
-			"provisioningPolicy": "Thin",
-			"compression":        true,
-			"deduplication":      true,
-		},
-		"ioConnectivity": map[string]interface{}{
-			"accessProtocol": "rbd",
-			"maxIOPS":        float64(5000000),
-			"maxBWS":         float64(500),
-			"minIOPS":        float64(1000000),
-			"minBWS":         float64(100),
-			"latency":        float64(100),
-		},
-	}
-
 	SampleDocks = []model.DockSpec{
 		{
 			BaseModel: &model.BaseModel{
@@ -266,7 +180,6 @@ var (
 			Size:             int64(1),
 			Status:           "available",
 			PoolId:           "a5965ebe-dg2c-434t-b28e-f373746a71ca",
-			ProfileId:        "b3585ebe-c42c-120g-b28e-f373746a71ca",
 			SnapshotId:       "b7602e18-771e-11e7-8f38-dbd6d291f4eg",
 			AvailabilityZone: "default",
 			ExportLocations:  []string{"192.168.100.100"},
@@ -280,7 +193,6 @@ var (
 			Size:             int64(1),
 			Status:           "available",
 			PoolId:           "d5f65ebe-ag2c-341s-a25e-f373746a71dr",
-			ProfileId:        "1e643aca-4922-4b1a-bb98-4245054aeff4",
 			SnapshotId:       "a5965ebe-dg2c-434t-b28e-f373746a71ca",
 			AvailabilityZone: "default",
 			ExportLocations:  []string{"192.168.100.101"},
@@ -305,7 +217,6 @@ var (
 				Id: "6ad25d59-a160-45b2-8920-211be282e2df",
 			},
 			Description:      "This is a sample Acl for testing",
-			ProfileId:        "1106b972-66ef-11e7-b172-db03f3689c9c",
 			Type:             "ip",
 			AccessCapability: []string{"Read", "Write"},
 			AccessTo:         "10.32.109.15",
@@ -316,7 +227,6 @@ var (
 				Id: "ad25d59-a160-45b2-8920-211be282e2dfh",
 			},
 			Description:      "This is a sample Acl for testing",
-			ProfileId:        "1106b972-66ef-11e7-b172-db03f3689c9c",
 			Type:             "ip",
 			AccessCapability: []string{"Read", "Write"},
 			AccessTo:         "10.32.109.151",
@@ -359,7 +269,6 @@ var (
 			Size:             int64(1),
 			Status:           "available",
 			PoolId:           "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			ProfileId:        "1106b972-66ef-11e7-b172-db03f3689c9c",
 			SnapshotId:       "",
 		},
 		{
@@ -372,7 +281,6 @@ var (
 			Size:             int64(1),
 			Status:           "available",
 			PoolId:           "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			ProfileId:        "1106b972-66ef-11e7-b172-db03f3689c9c",
 			SnapshotId:       "3769855c-a102-11e7-b772-17b880d2f537",
 		},
 	}
@@ -388,7 +296,6 @@ var (
 			Size:             int64(2),
 			Status:           "available",
 			PoolId:           "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			ProfileId:        "1106b972-66ef-11e7-b172-db03f3689c9c",
 			SnapshotId:       "",
 		},
 		{
@@ -401,7 +308,6 @@ var (
 			Size:             int64(1),
 			Status:           "available",
 			PoolId:           "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			ProfileId:        "1106b972-66ef-11e7-b172-db03f3689c9c",
 			SnapshotId:       "3769855c-a102-11e7-b772-17b880d2f537",
 		},
 	}
@@ -416,7 +322,6 @@ var (
 			Size:             int64(2),
 			Status:           "available",
 			PoolId:           "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			ProfileId:        "1106b972-66ef-11e7-b172-db03f3689c9c",
 			SnapshotId:       "",
 			Identifier:       &model.Identifier{DurableName: "6216b2326e974b5fb0b3d2af5cd6b25b", DurableNameFormat: "NAA"},
 		},
@@ -434,7 +339,6 @@ var (
 			Size:        int64(1),
 			Status:      "available",
 			PoolId:      "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			ProfileId:   "1106b972-66ef-11e7-b172-db03f3689c9c",
 			SnapshotId:  "",
 		},
 		{
@@ -446,7 +350,6 @@ var (
 			Size:        int64(1),
 			Status:      "available",
 			PoolId:      "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			ProfileId:   "1106b972-66ef-11e7-b172-db03f3689c9c",
 			SnapshotId:  "3769855c-a102-11e7-b772-17b880d2f537",
 		},
 	}
@@ -527,9 +430,7 @@ var (
 			Description: "This is the first sample snapshot for testing",
 			Size:        int64(1),
 			Status:      "available",
-			VolumeId:    "bd5b12a8-a101-11e7-941e-d77981b584d8",
-			ProfileId:   "1106b972-66ef-11e7-b172-db03f3689c9c",
-		},
+			VolumeId:    "bd5b12a8-a101-11e7-941e-d77981b584d8",		},
 		{
 			BaseModel: &model.BaseModel{
 				Id: "3bfaf2cc-a102-11e7-8ecb-63aea739d755",
@@ -539,7 +440,6 @@ var (
 			Size:        int64(1),
 			Status:      "available",
 			VolumeId:    "bd5b12a8-a101-11e7-941e-d77981b584d8",
-			ProfileId:   "1106b972-66ef-11e7-b172-db03f3689c9c",
 		},
 	}
 
@@ -553,7 +453,6 @@ var (
 			ShareSize:   int64(1),
 			Status:      "available",
 			FileShareId: "bd5b12a8-a101-11e7-941e-d77981b584d8",
-			ProfileId:   "1106b972-66ef-11e7-b172-db03f3689c9c",
 		},
 		{
 			BaseModel: &model.BaseModel{
@@ -564,7 +463,6 @@ var (
 			ShareSize:   int64(1),
 			Status:      "available",
 			FileShareId: "bd5b12a8-a101-11e7-941e-d77981b584d8",
-			ProfileId:   "1106b972-66ef-11e7-b172-db03f3689c9c",
 		},
 	}
 
@@ -578,7 +476,6 @@ var (
 			Name:              "sample-replication-01",
 			Description:       "This is a sample replication for testing",
 			PoolId:            "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			ProfileId:         "1106b972-66ef-11e7-b172-db03f3689c9c",
 		},
 		{
 			BaseModel: &model.BaseModel{
@@ -589,7 +486,6 @@ var (
 			Name:              "sample-replication-02",
 			Description:       "This is a sample replication for testing",
 			PoolId:            "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			ProfileId:         "1106b972-66ef-11e7-b172-db03f3689c9c",
 		},
 	}
 
@@ -649,59 +545,8 @@ var (
 
 // The Byte*** variable here is designed for unit test in client package.
 // For how to ultilize these pre-assigned variables, please refer to
-// (github.com/opensds/opensds/client/dock_test.go).
+// (github.com/sodafoundation/dock/client/dock_test.go).
 var (
-	ByteProfile = `{
-		"id": "1106b972-66ef-11e7-b172-db03f3689c9c",
-		"name": "default",
-		"description": "default policy",
-		"storageType": "block"
-	}`
-
-	ByteProfiles = `[
-		{
-			"id": "1106b972-66ef-11e7-b172-db03f3689c9c",
-			"name": "default",
-			"description": "default policy",
-			"storageType": "block"
-		},
-		{
-			"id": "2f9c0a04-66ef-11e7-ade2-43158893e017",
-			"name": "silver",
-			"description": "silver policy",
-			"customProperties": {
-				"dataStorage": {
-					"provisioningPolicy": "Thin",
-					"compression":   true,
-					"deduplication": true
-				},
-				"ioConnectivity": {
-					"accessProtocol": "rbd",
-					"maxIOPS":        5000000,
-					"maxBWS":         500,
-					"minIOPS": 	  1000000,
-					"minBWS": 	  100,
-					"latency":	  100
-				}
-			}
-		}
-	]`
-
-	ByteCustomProperties = `{
-		"dataStorage": {
-			"provisioningPolicy": "Thin",
-			"compression":   true,
-			"deduplication": true
-		},
-		"ioConnectivity": {
-			"accessProtocol": "rbd",
-			"maxIOPS":        5000000,
-			"maxBWS":         500,
-			"minIOPS": 	  1000000,
-			"minBWS": 	  100,
-			"latency":	  100
-		}
-	}`
 
 	ByteDock = `{
 		"id": "b7602e18-771e-11e7-8f38-dbd6d291f4e0",
@@ -812,7 +657,6 @@ var (
 		"size": 1,
 		"status": "available",
 		"poolId": "084bf71e-a102-11e7-88a8-e31fe6d52248",
-		"profileId": "1106b972-66ef-11e7-b172-db03f3689c9c"
 	}`
 
 	ByteFileShares = `[
@@ -826,7 +670,6 @@ var (
 			"availabilityZone": "default",
 			"status": "available",
 			"poolId": "a5965ebe-dg2c-434t-b28e-f373746a71ca",
-			"profileId": "b3585ebe-c42c-120g-b28e-f373746a71ca",
 			"snapshotId": "b7602e18-771e-11e7-8f38-dbd6d291f4eg",
 			"exportLocations": [
 				"192.168.100.100"
@@ -842,7 +685,6 @@ var (
 			"availabilityZone": "default",
 			"status": "available",
 			"poolId": "d5f65ebe-ag2c-341s-a25e-f373746a71dr",
-			"profileId": "1e643aca-4922-4b1a-bb98-4245054aeff4",
 			"snapshotId": "a5965ebe-dg2c-434t-b28e-f373746a71ca",
 			"exportLocations": [
 				"192.168.100.101"
@@ -857,7 +699,6 @@ var (
 		"sharesize": 1,
 		"status": "available",
 		"fileshareId": "bd5b12a8-a101-11e7-941e-d77981b584d8",
-		"profileId": "1106b972-66ef-11e7-b172-db03f3689c9c"
 	}`
 
 	ByteFileShareSnapshots = `[
@@ -909,7 +750,6 @@ var (
         "availabilityZone": "default",
 		"status": "available",
 		"poolId": "084bf71e-a102-11e7-88a8-e31fe6d52248",
-		"profileId": "1106b972-66ef-11e7-b172-db03f3689c9c"
 	}`
 
 	ByteVolumes = `[
@@ -921,7 +761,6 @@ var (
             "availabilityZone": "default",
 			"status": "available",
 			"poolId": "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			"profileId": "1106b972-66ef-11e7-b172-db03f3689c9c"
 		}
 	]`
 
@@ -970,7 +809,6 @@ var (
 		"size": 1,
 		"status": "available",
 		"volumeId": "bd5b12a8-a101-11e7-941e-d77981b584d8",
-		"profileId": "1106b972-66ef-11e7-b172-db03f3689c9c"
 	}`
 
 	ByteVolumeGroup = `{
@@ -1015,7 +853,6 @@ var (
 			"name": "sample-replication-01",
 			"description": "This is a sample replication for testing",
 			"poolId": "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			"profileId": "1106b972-66ef-11e7-b172-db03f3689c9c"
 	}`
 
 	ByteReplications = `[
@@ -1026,7 +863,6 @@ var (
 			"name": "sample-replication-01",
 			"description": "This is a sample replication for testing",
 			"poolId": "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			"profileId": "1106b972-66ef-11e7-b172-db03f3689c9c"
 		},
 		{
 			"id": "73bfdd58-4f3f-11e8-91c0-d39a05f391ee",
@@ -1035,7 +871,6 @@ var (
 			"name": "sample-replication-02",
 			"description": "This is a sample replication for testing",
 			"poolId": "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			"profileId": "1106b972-66ef-11e7-b172-db03f3689c9c"
 		}
 	]`
 
@@ -1122,38 +957,8 @@ var (
 
 // The StringSlice*** variable here is designed for unit test in etcd package.
 // For how to ultilize these pre-assigned variables, please refer to
-// (github.com/opensds/opensds/pkg/db/drivers/etcd/etcd_test.go).
+// (github.com/sodafoundation/dock/pkg/db/drivers/etcd/etcd_test.go).
 var (
-	StringSliceProfiles = []string{
-		`{
-			"id": "1106b972-66ef-11e7-b172-db03f3689c9c",
-			"name":        "default",
-			"description": "default policy",
-			"storageType": "block",
-			"customProperties": {}
-		}`,
-		`{
-			"id": "2f9c0a04-66ef-11e7-ade2-43158893e017",
-			"name":        "silver",
-			"description": "silver policy",
-			"storageType": "block",
-			"customProperties": {
-				"dataStorage": {
-					"provisioningPolicy": "Thin",
-					"compression":   true,
-					"deduplication": true
-				},
-				"ioConnectivity": {
-					"accessProtocol": "rbd",
-					"maxIOPS":        5000000,
-					"maxBWS":         500,
-					"minIOPS": 	  1000000,
-					"minBWS": 	  100,
-					"latency":	  100
-				}
-			}
-		}`,
-	}
 
 	StringSliceDocks = []string{
 		`{
@@ -1208,7 +1013,6 @@ var (
             "availabilityZone": "default",
 			"status":      "available",
 			"poolId":      "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			"profileId":   "1106b972-66ef-11e7-b172-db03f3689c9c"
 		}`,
 	}
 
@@ -1238,7 +1042,6 @@ var (
 			"size":        1,
 			"status":      "available",
 			"volumeId":    "bd5b12a8-a101-11e7-941e-d77981b584d8",
-			"profileId":   "1106b972-66ef-11e7-b172-db03f3689c9c"
 		}`,
 		`{
 			"id": "3bfaf2cc-a102-11e7-8ecb-63aea739d755",
@@ -1247,7 +1050,6 @@ var (
 			"size":        1,
 			"status":      "available",
 			"volumeId":    "bd5b12a8-a101-11e7-941e-d77981b584d8",
-			"profileId":   "1106b972-66ef-11e7-b172-db03f3689c9c"
 		}`,
 	}
 
@@ -1259,7 +1061,6 @@ var (
 			"name":              "sample-replication-01",
 			"description":       "This is a sample replication for testing",
 			"poolId":            "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			"profileId":         "1106b972-66ef-11e7-b172-db03f3689c9c"
 		}`,
 		`{
 			"id":                "73bfdd58-4f3f-11e8-91c0-d39a05f391ee",
@@ -1268,7 +1069,6 @@ var (
 			"name":              "sample-replication-02",
 			"description":       "This is a sample replication for testing",
 			"poolId":            "084bf71e-a102-11e7-88a8-e31fe6d52248",
-			"profileId":         "1106b972-66ef-11e7-b172-db03f3689c9c"
 		}`,
 	}
 )

@@ -23,12 +23,12 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/opensds/opensds/contrib/drivers"
-	"github.com/opensds/opensds/contrib/drivers/filesharedrivers"
-	"github.com/opensds/opensds/pkg/dock/discovery"
-	"github.com/opensds/opensds/pkg/model"
-	pb "github.com/opensds/opensds/pkg/model/proto"
-	data "github.com/opensds/opensds/testutils/collection"
+	"github.com/sodafoundation/dock/contrib/drivers"
+	"github.com/sodafoundation/dock/contrib/drivers/filesharedrivers"
+	"github.com/sodafoundation/dock/pkg/dock/discovery"
+	"github.com/sodafoundation/dock/pkg/model"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
+	data "github.com/sodafoundation/dock/testutils/collection"
 )
 
 func NewFakeDockServer() *dockServer {
@@ -192,14 +192,12 @@ func Test_dockServer_CreateFileShare(t *testing.T) {
 		ctx context.Context
 		opt *pb.CreateFileShareOpts
 	}
-	prf := &data.SampleFileShareProfiles[0]
 	var req = &pb.CreateFileShareOpts{
 		Id:          "bd5b12a8-a101-11e7-941e-d77981b584d8",
 		Name:        "sample-fileshare",
 		Description: "This is a sample fileshare for testing",
 		Size:        1,
 		PoolId:      "084bf71e-a102-11e7-88a8-e31fe6d52248",
-		Profile:     prf.ToJson(),
 	}
 	want1 := &pb.GenericResponse{
 		Reply: &pb.GenericResponse_Result_{

@@ -25,7 +25,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/opensds/opensds/contrib/connector"
+	"github.com/sodafoundation/dock/contrib/connector"
 )
 
 var (

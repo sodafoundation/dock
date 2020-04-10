@@ -20,7 +20,7 @@ import (
 
 	"github.com/ceph/go-ceph/rados"
 	log "github.com/golang/glog"
-	"github.com/opensds/opensds/pkg/utils/exec"
+	"github.com/sodafoundation/dock/pkg/utils/exec"
 )
 
 type MetricCli struct {

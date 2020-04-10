@@ -19,8 +19,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/opensds/opensds/pkg/model"
-	"github.com/opensds/opensds/pkg/utils/constants"
+	"github.com/sodafoundation/dock/pkg/model"
+	"github.com/sodafoundation/dock/pkg/utils/constants"
 )
 
 func TestRvRepElement(t *testing.T) {

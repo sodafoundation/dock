@@ -25,7 +25,7 @@ import (
 	"time"
 
 	"github.com/mitchellh/mapstructure"
-	"github.com/opensds/opensds/contrib/connector"
+	"github.com/sodafoundation/dock/contrib/connector"
 )
 
 // IscsiConnectorInfo define

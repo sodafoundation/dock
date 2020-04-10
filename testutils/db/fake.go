@@ -17,9 +17,9 @@ package db
 import (
 	"errors"
 
-	c "github.com/opensds/opensds/pkg/context"
-	"github.com/opensds/opensds/pkg/model"
-	. "github.com/opensds/opensds/testutils/collection"
+	c "github.com/sodafoundation/dock/pkg/context"
+	"github.com/sodafoundation/dock/pkg/model"
+	. "github.com/sodafoundation/dock/testutils/collection"
 )
 
 // FakeDbClient
@@ -101,11 +101,6 @@ func (fc *FakeDbClient) ListFileShares(ctx *c.Context) ([]*model.FileShareSpec, 
 		fshares = append(fshares, &SampleFileShares[i])
 	}
 	return fshares, nil
-}
-
-// ListFileSharesByProfileId
-func (fc *FakeDbClient) ListFileSharesByProfileId(ctx *c.Context, prfId string) ([]string, error) {
-	return []string{}, nil
 }
 
 // UpdateFileShare
@@ -283,89 +278,6 @@ func (fc *FakeDbClient) DeletePool(ctx *c.Context, polID string) error {
 	return nil
 }
 
-// CreateProfile
-func (fc *FakeDbClient) CreateProfile(ctx *c.Context, prf *model.ProfileSpec) (*model.ProfileSpec, error) {
-	return &SampleProfiles[0], nil
-}
-
-// GetProfile
-func (fc *FakeDbClient) GetProfile(ctx *c.Context, prfID string) (*model.ProfileSpec, error) {
-	for _, profile := range SampleProfiles {
-		if profile.Id == prfID {
-			return &profile, nil
-		}
-	}
-
-	return nil, errors.New("Can't find this profile resource!")
-}
-
-// GetDefaultProfile
-func (fc *FakeDbClient) GetDefaultProfile(ctx *c.Context) (*model.ProfileSpec, error) {
-	for _, profile := range SampleProfiles {
-		if profile.Name == "default" {
-			return &profile, nil
-		}
-	}
-
-	return nil, errors.New("Can't find default profile resource!")
-}
-
-// GetDefaultProfileFileShare
-func (fc *FakeDbClient) GetDefaultProfileFileShare(ctx *c.Context) (*model.ProfileSpec, error) {
-	for _, profile := range SampleProfiles {
-		if profile.Name == "default" && profile.StorageType == "file" {
-			return &profile, nil
-		}
-	}
-
-	return nil, errors.New("Can't find default profile resource!")
-}
-
-// ListProfiles
-func (fc *FakeDbClient) ListProfilesWithFilter(ctx *c.Context, m map[string][]string) ([]*model.ProfileSpec, error) {
-	var prfs []*model.ProfileSpec
-
-	for i := range SampleProfiles {
-		prfs = append(prfs, &SampleProfiles[i])
-	}
-	return prfs, nil
-}
-func (fc *FakeDbClient) ListProfiles(ctx *c.Context) ([]*model.ProfileSpec, error) {
-	var prfs []*model.ProfileSpec
-
-	for i := range SampleProfiles {
-		prfs = append(prfs, &SampleProfiles[i])
-	}
-	return prfs, nil
-}
-
-// UpdateProfile
-func (fc *FakeDbClient) UpdateProfile(ctx *c.Context, prfID string, input *model.ProfileSpec) (*model.ProfileSpec, error) {
-	return nil, nil
-}
-
-// DeleteProfile
-func (fc *FakeDbClient) DeleteProfile(ctx *c.Context, prfID string) error {
-	return nil
-}
-
-// AddCustomProperty
-func (fc *FakeDbClient) AddCustomProperty(ctx *c.Context, prfID string, custom model.CustomPropertiesSpec) (*model.CustomPropertiesSpec, error) {
-	custom = SampleProfiles[0].CustomProperties
-	return &custom, nil
-}
-
-// ListCustomProperties
-func (fc *FakeDbClient) ListCustomProperties(ctx *c.Context, prfID string) (*model.CustomPropertiesSpec, error) {
-	custom := SampleProfiles[0].CustomProperties
-	return &custom, nil
-}
-
-// RemoveCustomProperty
-func (fc *FakeDbClient) RemoveCustomProperty(ctx *c.Context, prfID, customKey string) error {
-	return nil
-}
-
 // CreateVolume
 func (fc *FakeDbClient) CreateVolume(ctx *c.Context, vol *model.VolumeSpec) (*model.VolumeSpec, error) {
 	return vol, nil
@@ -393,12 +305,6 @@ func (fc *FakeDbClient) ListVolumes(ctx *c.Context) ([]*model.VolumeSpec, error)
 		vols = append(vols, &SampleVolumes[i])
 	}
 	return vols, nil
-}
-
-// ListVolumesByProfileId
-func (fc *FakeDbClient) ListVolumesByProfileId(ctx *c.Context, prfId string) ([]string, error) {
-
-	return []string{}, nil
 }
 
 // UpdateVolume

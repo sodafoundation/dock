@@ -263,18 +263,6 @@ func TestFunctionDefaultValue(t *testing.T) {
 func TestOpensdsConfig(t *testing.T) {
 	initConf("testdata/opensds.conf", CONF)
 
-	if CONF.OsdsApiServer.ApiEndpoint != "localhost:50040" {
-		t.Error("Test OsdsApiServer.ApiEndpoint error")
-	}
-	if CONF.OsdsApiServer.LogFlushFrequency != 2*time.Second {
-		t.Error("Test OsdsApiServer.ApiEndpoint error")
-	}
-	if CONF.OsdsLet.ApiEndpoint != "localhost:50049" {
-		t.Error("Test OsdsLet.ApiEndpoint error")
-	}
-	if CONF.OsdsLet.LogFlushFrequency != 3*time.Second {
-		t.Error("Test OsdsLet.LogFlushFrequency error")
-	}
 	if CONF.OsdsDock.ApiEndpoint != "localhost:50050" {
 		t.Error("Test OsdsDock.ApiEndpoint error")
 	}

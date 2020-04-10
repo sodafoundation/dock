@@ -21,14 +21,14 @@ plugin, just modify Init() and Clean() method.
 package filesharedrivers
 
 import (
-	"github.com/opensds/opensds/contrib/drivers/filesharedrivers/chubaofs"
-	"github.com/opensds/opensds/contrib/drivers/filesharedrivers/manila"
-	nfs "github.com/opensds/opensds/contrib/drivers/filesharedrivers/nfs"
-	"github.com/opensds/opensds/contrib/drivers/filesharedrivers/oceanstor"
-	"github.com/opensds/opensds/contrib/drivers/utils/config"
-	"github.com/opensds/opensds/pkg/model"
-	pb "github.com/opensds/opensds/pkg/model/proto"
-	sample "github.com/opensds/opensds/testutils/driver"
+	"github.com/sodafoundation/dock/contrib/drivers/filesharedrivers/chubaofs"
+	"github.com/sodafoundation/dock/contrib/drivers/filesharedrivers/manila"
+	nfs "github.com/sodafoundation/dock/contrib/drivers/filesharedrivers/nfs"
+	"github.com/sodafoundation/dock/contrib/drivers/filesharedrivers/oceanstor"
+	"github.com/sodafoundation/dock/contrib/drivers/utils/config"
+	"github.com/sodafoundation/dock/pkg/model"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
+	sample "github.com/sodafoundation/dock/testutils/driver"
 )
 
 type FileShareDriver interface {

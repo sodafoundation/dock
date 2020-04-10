@@ -23,10 +23,9 @@ import (
 
 	"github.com/astaxie/beego/httplib"
 	log "github.com/golang/glog"
-	"github.com/opensds/opensds/contrib/drivers/utils"
-	. "github.com/opensds/opensds/contrib/drivers/utils/config"
-	"github.com/opensds/opensds/pkg/model"
-	pb "github.com/opensds/opensds/pkg/model/proto"
+	"github.com/sodafoundation/dock/contrib/drivers/utils"
+	. "github.com/sodafoundation/dock/contrib/drivers/utils/config"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
 )
 
 const (
@@ -279,14 +278,10 @@ func (c *NimbleClient) CreateVolume(poolId string, opt *pb.CreateVolumeOpts) (*V
 		return nil, err
 	}
 
-	// Parse options from Profile----------------------------------------------
-	profileOpt := &model.ProfileSpec{}
+	// Parse options from Metadata----------------------------------------------
 	reqOptions := CreateVolumeReqData{}
-	if err := json.Unmarshal([]byte(opt.GetProfile()), profileOpt); err != nil {
-		return nil, err
-	}
 
-	options, err := json.Marshal(profileOpt.CustomProperties)
+	options, err := json.Marshal(opt.GetMetadata())
 	if err != nil {
 		return nil, err
 	}
@@ -397,8 +392,6 @@ func (c *NimbleClient) DeleteVolume(poolId string, opt *pb.DeleteVolumeOpts) err
 		return err
 	}
 
-	// Nimble storage daes not support delete options. No need to parse values in profile.
-
 	err = c.request("DELETE", ep+volumeUrlPath+"/"+lunId, nil, nil, token)
 	return err
 }
@@ -425,15 +418,10 @@ func (c *NimbleClient) ExtendVolume(poolId string, opt *pb.ExtendVolumeOpts) (*V
 		return nil, err
 	}
 
-	// Parse options from Profile----------------------------------------------
+	// Parse options from Metadata----------------------------------------------
 	reqOptions := ExtendVolumeReqData{}
 
-	profileOpt := &model.ProfileSpec{}
-	if err := json.Unmarshal([]byte(opt.GetProfile()), profileOpt); err != nil {
-		return nil, err
-	}
-
-	options, err := json.Marshal(profileOpt.CustomProperties)
+	options, err := json.Marshal(opt.GetMetadata())
 	if err != nil {
 		return nil, err
 	}
@@ -456,15 +444,10 @@ func (c *NimbleClient) CreateSnapshot(poolId string, opt *pb.CreateVolumeSnapsho
 		return nil, err
 	}
 
-	// Parse options from Profile----------------------------------------------
+	// Parse options from Metadata----------------------------------------------
 	reqOptions := CreateSnapshotReqData{}
 
-	profileOpt := &model.ProfileSpec{}
-	if err := json.Unmarshal([]byte(opt.GetProfile()), profileOpt); err != nil {
-		return nil, err
-	}
-
-	options, err := json.Marshal(profileOpt.CustomProperties)
+	options, err := json.Marshal(opt.GetMetadata())
 	if err != nil {
 		return nil, err
 	}
@@ -490,7 +473,6 @@ func (c *NimbleClient) DeleteSnapshot(poolId string, opt *pb.DeleteVolumeSnapsho
 	if err != nil {
 		return err
 	}
-	// Nimble storage daes not support delete options. No need to parse values in profile.
 	return c.request("DELETE", ep+snapshotUrlPath+"/"+snapId, nil, nil, token)
 }
 

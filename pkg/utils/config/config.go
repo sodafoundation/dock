@@ -26,7 +26,7 @@ import (
 	"time"
 
 	"github.com/go-ini/ini"
-	"github.com/opensds/opensds/pkg/utils/constants"
+	"github.com/sodafoundation/dock/pkg/utils/constants"
 )
 
 const (

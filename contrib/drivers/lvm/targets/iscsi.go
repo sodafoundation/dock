@@ -25,7 +25,7 @@ import (
 	"strings"
 
 	log "github.com/golang/glog"
-	"github.com/opensds/opensds/pkg/utils"
+	"github.com/sodafoundation/dock/pkg/utils"
 )
 
 const (

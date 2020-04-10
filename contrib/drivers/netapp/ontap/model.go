@@ -16,7 +16,7 @@ package ontap
 
 import (
 	"github.com/netapp/trident/storage_drivers/ontap"
-	. "github.com/opensds/opensds/contrib/drivers/utils/config"
+	. "github.com/sodafoundation/dock/contrib/drivers/utils/config"
 )
 
 type BackendOptions struct {

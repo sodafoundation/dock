@@ -17,7 +17,7 @@ package utils
 import (
 	"testing"
 
-	pb "github.com/opensds/opensds/pkg/model/proto"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
 )
 
 func TestGetInitiatorName(t *testing.T) {

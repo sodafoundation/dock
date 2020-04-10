@@ -22,9 +22,9 @@ import (
 	"strings"
 	"testing"
 
-	. "github.com/opensds/opensds/contrib/drivers/utils/config"
-	"github.com/opensds/opensds/pkg/model"
-	pb "github.com/opensds/opensds/pkg/model/proto"
+	. "github.com/sodafoundation/dock/contrib/drivers/utils/config"
+	"github.com/sodafoundation/dock/pkg/model"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
 	uuid "github.com/satori/go.uuid"
 
 	mock "github.com/stretchr/testify/mock"
@@ -148,7 +148,6 @@ func TestCreateVolume(t *testing.T) {
 		Size:             sizeInt,
 		Description:      "test description",
 		AvailabilityZone: "default",
-		ProfileId:        "profileid",
 		PoolId:           "poolid",
 		PoolName:         poolname,
 		Metadata:         map[string]string{},
@@ -252,7 +251,6 @@ func TestExtendVolume(t *testing.T) {
 		Size:             sizeInt,
 		Description:      "test description",
 		AvailabilityZone: "default",
-		ProfileId:        "profileid",
 		PoolId:           "poolid",
 		PoolName:         poolname,
 		Metadata: map[string]string{

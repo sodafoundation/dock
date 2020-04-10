@@ -26,39 +26,7 @@ split_line(){
     echo "================================================================================================"
 }
 
-# Start the openapi-spec validation.
-split_line "Start openapi spec validation"
-output=$(docker run -v $OPENSDS_DIR/openapi-spec/swagger.yaml:/swagger.yaml --rm p1c2u/openapi-spec-validator /swagger.yaml)
-if [ "$output" != "OK" ]
-then
-    echo "Faild to validate openapi spec"
-    exit -1
-else
-    echo "Openapi spec validation is passed~"
-fi
-
 # Start unit test.
 split_line "Start unit test"
-go test -v github.com/opensds/opensds/osdsctl/... -cover
-go test -v github.com/opensds/opensds/client/... -cover
-go test -v github.com/opensds/opensds/pkg/... -cover
-go test -v github.com/opensds/opensds/contrib/... -cover
-
-# Start integration test.
-split_line "Start integration test"
-sudo $OPENSDS_DIR/test/integration/prepare.sh
-go test -v github.com/opensds/opensds/test/integration/... -tags integration
-sudo killall -9 osdsapiserver osdslet osdsdock
-sudo rm /etc/opensds/opensds.conf -rf
-
-# Start lvm e2e test
-split_line "Start lvm e2e test"
-sudo $OPENSDS_DIR/install/devsds/install.sh
-ps -ef|grep osds
-go test -v github.com/opensds/opensds/test/e2e/... -tags e2e
-
-# Start lvm e2e flow test
-split_line "Start lvm e2e flow test"
-go build -o ./test/e2e/volume-connector github.com/opensds/opensds/test/e2e/connector/
-go test -v github.com/opensds/opensds/test/e2e/... -tags e2ef
-sudo $OPENSDS_DIR/install/devsds/uninstall.sh
+go test -v github.com/sodafoundation/dock/pkg/... -cover
+go test -v github.com/sodafoundation/dock/contrib/... -cover

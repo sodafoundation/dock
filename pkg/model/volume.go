@@ -56,9 +56,6 @@ type VolumeSpec struct {
 	// +readOnly
 	PoolId string `json:"poolId,omitempty"`
 
-	// The uuid of the profile which the volume belongs to.
-	ProfileId string `json:"profileId,omitempty"`
-
 	// Metadata should be kept until the scemantics between opensds volume
 	// and backend storage resouce description are clear.
 	// +optional
@@ -108,9 +105,6 @@ type VolumeSnapshotSpec struct {
 	// +optional
 	Description string `json:"description,omitempty"`
 
-	// The uuid of the profile which the volume belongs to.
-	ProfileId string `json:"profileId,omitempty"`
-
 	// The size of the volume which the snapshot belongs to.
 	// Default unit of volume Size is GB.
 	Size int64 `json:"size,omitempty"`
@@ -150,9 +144,6 @@ type VolumeGroupSpec struct {
 	// The description of the volume group.
 	// +optional
 	Description string `json:"description,omitempty"`
-
-	// The uuid of the profile which the volume group belongs to.
-	Profiles []string `json:"profiles,omitempty"`
 
 	// The locality that volume group belongs to.
 	// +optional

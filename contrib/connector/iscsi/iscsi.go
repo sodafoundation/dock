@@ -15,7 +15,7 @@
 package iscsi
 
 import (
-	"github.com/opensds/opensds/contrib/connector"
+	"github.com/sodafoundation/dock/contrib/connector"
 )
 
 type Iscsi struct{}

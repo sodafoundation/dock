@@ -33,12 +33,12 @@ import (
 	snapshotsv2 "github.com/gophercloud/gophercloud/openstack/blockstorage/v2/snapshots"
 	volumesv2 "github.com/gophercloud/gophercloud/openstack/blockstorage/v2/volumes"
 	"github.com/gophercloud/gophercloud/pagination"
-	"github.com/opensds/opensds/contrib/drivers/utils"
-	. "github.com/opensds/opensds/contrib/drivers/utils/config"
-	"github.com/opensds/opensds/pkg/model"
-	pb "github.com/opensds/opensds/pkg/model/proto"
-	"github.com/opensds/opensds/pkg/utils/config"
-	"github.com/opensds/opensds/pkg/utils/pwd"
+	"github.com/sodafoundation/dock/contrib/drivers/utils"
+	. "github.com/sodafoundation/dock/contrib/drivers/utils/config"
+	"github.com/sodafoundation/dock/pkg/model"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
+	"github.com/sodafoundation/dock/pkg/utils/config"
+	"github.com/sodafoundation/dock/pkg/utils/pwd"
 	uuid "github.com/satori/go.uuid"
 )
 

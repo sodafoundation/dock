@@ -20,7 +20,7 @@ import (
 
 	"io/ioutil"
 
-	"github.com/opensds/opensds/pkg/utils/pwd"
+	"github.com/sodafoundation/dock/pkg/utils/pwd"
 	"github.com/spf13/cobra"
 	"gopkg.in/yaml.v2"
 )

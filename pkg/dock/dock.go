@@ -26,21 +26,21 @@ import (
 	"net"
 
 	log "github.com/golang/glog"
-	"github.com/opensds/opensds/contrib/connector"
-	"github.com/opensds/opensds/contrib/drivers"
-	"github.com/opensds/opensds/contrib/drivers/filesharedrivers"
-	c "github.com/opensds/opensds/pkg/context"
-	"github.com/opensds/opensds/pkg/db"
-	"github.com/opensds/opensds/pkg/dock/discovery"
-	"github.com/opensds/opensds/pkg/model"
-	pb "github.com/opensds/opensds/pkg/model/proto"
+	"github.com/sodafoundation/dock/contrib/connector"
+	"github.com/sodafoundation/dock/contrib/drivers"
+	"github.com/sodafoundation/dock/contrib/drivers/filesharedrivers"
+	c "github.com/sodafoundation/dock/pkg/context"
+	"github.com/sodafoundation/dock/pkg/db"
+	"github.com/sodafoundation/dock/pkg/dock/discovery"
+	"github.com/sodafoundation/dock/pkg/model"
+	pb "github.com/sodafoundation/dock/pkg/model/proto"
 	"google.golang.org/grpc"
 
-	_ "github.com/opensds/opensds/contrib/connector/fc"
-	_ "github.com/opensds/opensds/contrib/connector/iscsi"
-	_ "github.com/opensds/opensds/contrib/connector/nfs"
-	_ "github.com/opensds/opensds/contrib/connector/nvmeof"
-	_ "github.com/opensds/opensds/contrib/connector/rbd"
+	_ "github.com/sodafoundation/dock/contrib/connector/fc"
+	_ "github.com/sodafoundation/dock/contrib/connector/iscsi"
+	_ "github.com/sodafoundation/dock/contrib/connector/nfs"
+	_ "github.com/sodafoundation/dock/contrib/connector/nvmeof"
+	_ "github.com/sodafoundation/dock/contrib/connector/rbd"
 )
 
 // dockServer is used to implement pb.DockServer
@@ -300,7 +300,6 @@ func (ds *dockServer) CreateReplication(ctx context.Context, opt *pb.CreateRepli
 	}
 
 	replica.PoolId = opt.GetPoolId()
-	replica.ProfileId = opt.GetProfileId()
 	replica.Name = opt.GetName()
 
 	return pb.GenericResponseResult(replica), nil

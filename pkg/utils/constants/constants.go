@@ -19,34 +19,13 @@ const (
 	// exactly precision to seconds.
 	TimeFormat = `2006-01-02T15:04:05`
 
-	DefaultOpensdsEndpoint = "http://localhost:50040"
-
-	// This is set for None Auth
-	DefaultTenantId = "e93b4c0934da416eb9c8d120c5d04d96"
-
-	// Token parameter name
-	AuthTokenHeader    = "X-Auth-Token"
-	SubjectTokenHeader = "X-Subject-Token"
-
-	// ContentType for api
-	ContentType = "application/json"
-
 	// OpenSDS current api version
 	APIVersion = "v1beta"
-
-	// BeegoServerTimeOut ...
-	BeegoServerTimeOut = 60
-
-	// OpensdsCaCertFile ...
-	OpensdsCaCertFile = "/opt/opensds-security/ca/ca-cert.pem"
 
 	// OpensdsConfigPath indicates the absolute path of opensds global
 	// configuration file.
 	OpensdsConfigPath = "/etc/opensds/opensds.conf"
 
-	// OpensdsCtrBindEndpoint indicates the bind endpoint which the opensds
-	// controller grpc server would listen to.
-	OpensdsCtrBindEndpoint = "0.0.0.0:50049"
 	// OpensdsDockBindEndpoint indicates the bind endpoint which the opensds
 	// dock grpc server would listen to.
 	OpensdsDockBindEndpoint = "0.0.0.0:50050"
