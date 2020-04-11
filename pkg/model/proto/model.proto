@@ -132,23 +132,23 @@ message CreateVolumeOpts {
     // The locality that volume belongs to, required.
     string availabilityZone = 6;
     // The uuid of the pool on which volume will be created, required.
-    string poolId = 7;
+    string poolId = 8;
     // The name of the pool on which volume will be created, required.
-    string poolName = 8;
+    string poolName = 9;
     // The metadata of the volume, optional.
-    map<string, string> metadata = 9;
+    map<string, string> metadata = 10;
     // The storage driver type.
-    string driverName = 10;
+    string driverName = 11;
     // The Context
-    string context = 11;
+    string context = 12;
     // The replication driver data
-    map<string, string> replicationDriverData = 12;
+    map<string, string> replicationDriverData = 13;
     // The uuid of replication
-    string replicationId = 13;
+    string replicationId = 14;
     // The size of snapshot
-    int64 snapshotSize = 14;
+    int64 snapshotSize = 15;
     // Down load snapshot from cloud
-    bool snapshotFromCloud = 15;
+    bool snapshotFromCloud = 16;
 }
 
 // DeleteVolumeOpts is a structure which indicates all required properties
@@ -157,13 +157,13 @@ message DeleteVolumeOpts {
     // The uuid of the volume, required.
     string id = 1;
     // The uuid of the pool on which volume will be created, required.
-    string poolId = 2;
+    string poolId = 3;
     // The metadata of the volume, optional.
-    map<string, string> metadata = 3;
+    map<string, string> metadata = 4;
     // The storage driver type.
-    string driverName = 4;
+    string driverName = 5;
     // The Context
-    string context = 5;
+    string context = 6;
 }
 
 // ExtendVolumeOpts is a structure which indicates all required properties
@@ -182,15 +182,15 @@ message ExtendVolumeOpts {
     // The locality that volume belongs to, required.
     string availabilityZone = 6;
     // The uuid of the pool on which volume will be created, required.
-    string poolId = 7;
+    string poolId = 8;
     // The name of the pool on which volume will be created, required.
-    string poolName = 8;
+    string poolName = 9;
     // The metadata of the volume, optional.
-    map<string, string> metadata = 9;
+    map<string, string> metadata = 10;
     // The storage driver type.
-    string driverName = 10;
+    string driverName = 11;
     // The Context
-    string context = 11;
+    string context = 12;
 }
 
 // CreateVolumeSnapshotOpts is a structure which indicates all required
@@ -207,11 +207,11 @@ message CreateVolumeSnapshotOpts {
     // The uuid of the volume that snapshot belongs to, required.
     string volumeId = 5;
     // The metadata of the volume snapshot, optional.
-    map<string, string> metadata = 6;
+    map<string, string> metadata = 7;
     // The storage driver type.
-    string driverName = 7;
+    string driverName = 8;
     // The Context
-    string context = 8;
+    string context = 9;
 }
 
 // DeleteVolumeSnapshotOpts is a structure which indicates all required
@@ -358,31 +358,31 @@ message CreateReplicationOpts {
     // The dock infomation on which the request will be executed
     string availabilityZone = 6;
     // The uuid of the pool on which volume will be created, required.
-    string poolId = 7;
+    string poolId = 8;
     // The name of the pool on which volume will be created, required.
-    string poolName = 8;
+    string poolName = 9;
     // The metadata of the primary replication, optional.
-    map<string, string> primaryReplicationDriverData = 9;
+    map<string, string> primaryReplicationDriverData = 11;
     // The metadata of the seondary replication, optional.
-    map<string, string> secondaryReplicationDriverData = 10;
+    map<string, string> secondaryReplicationDriverData = 12;
     // The dock id.
-    string dockId = 11;
+    string dockId = 13;
     // The replication driver type.
-    string driverName = 12;
+    string driverName = 14;
     // The Context
-    string context = 13;
+    string context = 15;
     // Whether is primary replication
-    bool  isPrimary = 14;
+    bool  isPrimary = 16;
     // The replication metadata
-    map<string, string> metadata = 15;
+    map<string, string> metadata = 17;
     // The volume data list
-    repeated  VolumeData volumeDataList = 16;
+    repeated  VolumeData volumeDataList = 18;
     //the replication mode sync/async
-    string replicationMode = 17;
+    string replicationMode = 19;
     // 0 means sync replication.
-    int64 ReplicationPeriod = 18;
+    int64 ReplicationPeriod = 20;
     // replication bandwidth
-    int64 ReplicationBandwidth = 19;
+    int64 ReplicationBandwidth = 21;
 }
 
 // Delete ReplicationOpts is a structure which indicates all required properties
@@ -402,23 +402,23 @@ message DeleteReplicationOpts {
     // The dock infomation on which the request will be executed
     string availabilityZone = 6;
     // The uuid of the pool on which volume will be created, required.
-    string poolId = 7;
+    string poolId = 8;
     // The name of the pool on which volume will be created, required.
-    string poolName = 8;
+    string poolName = 9;
     // The metadata of the primary replication, optional.
-    map<string, string> primaryReplicationDriverData = 9;
+    map<string, string> primaryReplicationDriverData = 11;
     // The metadata of the seondary replication, optional.
-    map<string, string> secondaryReplicationDriverData = 10;
+    map<string, string> secondaryReplicationDriverData = 12;
     // The dock id.
-    string dockId = 11;
+    string dockId = 13;
     // The replication driver type.
-    string driverName = 12;
+    string driverName = 14;
     // The Context
-    string context = 13;
+    string context = 15;
     // The replication metadata
-    map<string, string> metadata = 14;
+    map<string, string> metadata = 16;
     // Whether is primary replication
-    bool  isPrimary = 15;
+    bool  isPrimary = 17;
 }
 
 
@@ -437,23 +437,23 @@ message EnableReplicationOpts {
     // The dock infomation on which the request will be executed
     string availabilityZone = 6;
     // The uuid of the pool on which volume will be created, required.
-    string poolId = 7;
+    string poolId = 8;
     // The name of the pool on which volume will be created, required.
-    string poolName = 8;
+    string poolName = 9;
     // The metadata of the primary replication, optional.
-    map<string, string> primaryReplicationDriverData = 9;
+    map<string, string> primaryReplicationDriverData = 11;
     // The metadata of the seondary replication, optional.
-    map<string, string> secondaryReplicationDriverData = 10;
+    map<string, string> secondaryReplicationDriverData = 12;
     // The dock id.
-    string dockId = 11;
+    string dockId = 13;
     // The replication driver type.
-    string driverName = 12;
+    string driverName = 14;
     // The Context
-    string context = 13;
+    string context = 15;
     // The replication metadata
-    map<string, string> metadata = 14;
+    map<string, string> metadata = 16;
     // Whether is primary replication
-    bool  isPrimary = 15;
+    bool  isPrimary = 17;
 }
 
 // Delete ReplicationOpts is a structure which indicates all required properties
@@ -471,23 +471,23 @@ message DisableReplicationOpts {
     // The dock infomation on which the request will be executed
     string availabilityZone = 6;
     // The uuid of the pool on which volume will be created, required.
-    string poolId = 7;
+    string poolId = 8;
     // The name of the pool on which volume will be created, required.
-    string poolName = 8;
+    string poolName = 9;
     // The metadata of the primary replication, optional.
-    map<string, string> primaryReplicationDriverData = 9;
+    map<string, string> primaryReplicationDriverData = 11;
     // The metadata of the seondary replication, optional.
-    map<string, string> secondaryReplicationDriverData = 10;
+    map<string, string> secondaryReplicationDriverData = 12;
     // The dock id.
-    string dockId = 11;
+    string dockId = 13;
     // The replication driver type.
-    string driverName = 12;
+    string driverName = 14;
     // The Context
-    string context = 13;
+    string context = 15;
     // The replication metadata
-    map<string, string> metadata = 14;
+    map<string, string> metadata = 16;
     // Whether is primary replication
-    bool  isPrimary = 15;
+    bool  isPrimary = 17;
 }
 
 // Delete ReplicationOpts is a structure which indicates all required properties
@@ -505,27 +505,27 @@ message FailoverReplicationOpts {
     // The dock infomation on which the request will be executed
     string availabilityZone = 6;
     // The uuid of the pool on which volume will be created, required.
-    string poolId = 7;
+    string poolId = 8;
     // The name of the pool on which volume will be created, required.
-    string poolName = 8;
+    string poolName = 9;
     // The metadata of the primary replication, optional.
-    map<string, string> primaryReplicationDriverData = 9;
+    map<string, string> primaryReplicationDriverData = 11;
     // The metadata of the seondary replication, optional.
-    map<string, string> secondaryReplicationDriverData = 10;
+    map<string, string> secondaryReplicationDriverData = 12;
     // The dock id.
-    string dockId = 11;
+    string dockId = 13;
     // The replication driver type.
-    string driverName = 12;
+    string driverName = 14;
     // The Context
-    string context = 13;
+    string context = 15;
     // Allow attached volume
-    bool allowAttachedVolume = 14;
+    bool allowAttachedVolume = 16;
     // The secondary backend id.
-    string secondaryBackendId = 15;
+    string secondaryBackendId = 17;
     // The replication metadata
-    map<string, string> metadata = 16;
+    map<string, string> metadata = 18;
     // Whether is primary replication
-    bool  isPrimary = 17;
+    bool  isPrimary = 19;
     message FailoverRequest {
         bool allowAttachedVolume = 1;
         string secondaryBackendId = 2;
@@ -629,15 +629,15 @@ message DeleteFileShareAclOpts {
     // accessTo of the fileshare.
     string accessTo = 6;
     // The driverName
-    string driverName = 7;
+    string driverName = 8;
     // The Context
-    string context = 8;
+    string context = 9;
     // The Name
-    string Name = 9;
+    string Name = 10;
     // The metadata of the file share, optional.
-    map<string, string> metadata = 10;
+    map<string, string> metadata = 11;
     // The protocol
-    string AccessProtocol = 11;
+    string AccessProtocol = 12;
 }
 
 // CreateFileShareAclOpts is a structure which indicates all required properties for creating a file share.
@@ -655,15 +655,15 @@ message CreateFileShareAclOpts {
     // accessTo of the fileshare.
     string accessTo = 6;
     // The driverName
-    string driverName = 7;
+    string driverName = 8;
     // The Context
-    string context = 8;
+    string context = 9;
     // The Name
-    string Name = 9;
+    string Name = 10;
     // The metadata of the file share, optional.
-    map<string, string> metadata = 10;
+    map<string, string> metadata = 11;
     // The protocol
-    string AccessProtocol = 11;
+    string AccessProtocol = 12;
 }
 
 // CreateFileShareOpts is a structure which indicates all required properties for creating a file share.
@@ -689,13 +689,13 @@ message CreateFileShareOpts {
     // The Context
     string context = 10;
     // The ExportLocations
-    repeated string exportLocations = 11;
+    repeated string exportLocations = 12;
     // The snapshots
-    string snapshotId = 12;
+    string snapshotId = 13;
     // The snapshots
-    string snapshotName = 13;
+    string snapshotName = 14;
     // The protocol
-    string AccessProtocol = 14;
+    string AccessProtocol = 15;
 }
 
 // DeleteFileShareOpts is a structure which indicates all required properties
@@ -712,13 +712,13 @@ message DeleteFileShareOpts {
     // The Context
     string context = 5;
     // The name of fileShare
-    string name = 6;
+    string name = 7;
     // The name of pool
-    string poolname = 7;
+    string poolname = 8;
     // The ExportLocations
-    repeated string exportLocations = 8;
+    repeated string exportLocations = 9;
     // The protocol
-    string AccessProtocol = 9;
+    string AccessProtocol = 10;
 }
 
 // CreateFileShareSnapshotOpts is a structure which indicates all required
@@ -739,7 +739,7 @@ message CreateFileShareSnapshotOpts {
     // The Context
     string context = 7;
     // The metadata of the fileshare, optional.
-    map<string, string> metadata = 8;
+    map<string, string> metadata = 9;
 }
 
 // DeleteFileShareSnapshotOpts is a structure which indicates all required
@@ -754,7 +754,7 @@ message DeleteFileShareSnapshotOpts {
     // The Context
     string context = 4;
     // The metadata of the fileshare, optional.
-    map<string, string> metadata = 5;
+    map<string, string> metadata = 6;
 }
 
 // Generic response, it return:
