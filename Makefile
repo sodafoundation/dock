@@ -18,7 +18,7 @@ DIST_DIR := $(BASE_DIR)/build/dist
 VERSION ?= $(shell git describe --exact-match 2> /dev/null || \
                  git describe --match=$(git rev-parse --short=8 HEAD) \
 		 --always --dirty --abbrev=8)
-BUILD_TGT := opensds-hotpot-$(VERSION)-linux-amd64
+BUILD_TGT := soda-dock-$(VERSION)-linux-amd64
 
 all: build
 
