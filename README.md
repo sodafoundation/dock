@@ -1,59 +1,69 @@
-# OpenSDS
+# SODA DOCK
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/opensds/opensds?branch=master)](https://goreportcard.com/report/github.com/opensds/opensds)
-[![Build Status](https://travis-ci.org/opensds/opensds.svg?branch=master)](https://travis-ci.org/opensds/opensds)
-[![codecov.io](https://codecov.io/github/opensds/opensds/coverage.svg?branch=master)](https://codecov.io/github/opensds/opensds?branch=master)
-[![Releases](https://img.shields.io/github/release/opensds/opensds/all.svg?style=flat-square)](https://github.com/opensds/opensds/releases)
-[![LICENSE](https://img.shields.io/github/license/opensds/opensds.svg?style=flat-square)](https://github.com/opensds/opensds/blob/master/LICENSE)
+[![Go Report Card](https://goreportcard.com/badge/github.com/sodafoundation/dock?branch=master)](https://goreportcard.com/report/github.com/sodafoundation/dock)
+[![Build Status](https://travis-ci.org/sodafoundation/dock.svg?branch=master)](https://travis-ci.org/sodafoundation/dock)
+[![codecov.io](https://codecov.io/github/sodafoundation/dock/coverage.svg?branch=master)](https://codecov.io/github/sodafoundation/dock?branch=master)
+[![Releases](https://img.shields.io/github/release/sodafoundation/dock/all.svg?style=flat-square)](https://github.com/sodafoundation/dock/releases)
+[![LICENSE](https://img.shields.io/github/license/sodafoundation/dock.svg?style=flat-square)](https://github.com/sodafoundation/dock/blob/master/LICENSE)
 
-<img src="https://www.opensds.io/wp-content/uploads/sites/18/2016/11/logo_opensds.png" width="100">
-
-## Latest Release: v0.10.1 Daito
-
-[OpenAPI doc](http://petstore.swagger.io/?url=https://raw.githubusercontent.com/opensds/opensds/v0.10.1/openapi-spec/swagger.yaml)
-
-[Release notes](https://github.com/opensds/opensds/releases/tag/v0.10.1)
+<img src="https://sodafoundation.io/wp-content/uploads/2020/01/SODA_logo_outline_color_800x800.png" width="200" height="200">
 
 ## Introduction
 
-The [OpenSDS Project](https://opensds.io/) is a collaborative project under Linux
-Foundation supported by storage users and vendors, including
-Dell EMC, Intel, Huawei, Fujitsu, Western Digital, Vodafone, NTT and Oregon State University. The project
-will also seek to collaborate with other upstream open source communities
-such as Cloud Native Computing Foundation, Docker, OpenStack, and Open
-Container Initiative.
+SODA Dock is an open source implementation for the unified interface to connect heterogeneous storage backends. So dock is a docking station for heterogeneous storage backends! This is where all the different storage vendors drivers for various storage backend models get attached.
 
-It is a software defined storage controller that provides
-unified block, file, object storage services and focuses on:
+We strive to make most of the protocols and backends supported as close as ‘plug n play’. Currently, each storage backend needs a thin, easy to develop SODA Driver Plugin to connect the storage backend to the DOCK. The SODA Driver Plugin and Storage vendor driver together can be called SODA Driver for xxx vendor yy model storage. SODA Driver can support one or more or multiple classes of storage backends.
 
-* *Simple*: well-defined API that follows the [OpenAPI](https://github.com/OAI/OpenAPI-Specification) specification.
-* *Lightweight*: no external dependencies, deployed once in binary file or container.
-* *Extensible*: pluggable framework available for different storage systems, identity services, capability filters, etc.
+SODA DOCK can interface directly to SODA API or via Controller. We recommend through the controller for a complete end to end solution, as it can provide the metadata management, handling multiple dock etc. For the api to dock direct interfacing, currently the user needs to do the necessary changes.
 
-## Community
+Plan to have multiple instance, multi driver docks to support multi-cluster, multi-platform or multi-cloud scenarios in future.
 
-The OpenSDS community welcomes anyone who is interested in software defined
-storage and shaping the future of cloud-era storage. If you are a company,
-you should consider joining the [OpenSDS Project](https://opensds.io/).
-If you are a developer and would like to be part of the code development
-that is happening now, please refer to the Contributing sections below.
+This is one of the SODA Core Projects and is maintained by SODA Foundation directly. We recommend adding all the storage vendor drivers under this project to build a huge repository for the storage vendor support. However the soda driver plugins can be maintained anywhere, and if it is compliant with SODA API, it can be part of SODA Project Landscape.
 
-## You want to contribute?
+Earlier part of github.com/sodafoundation/opensds Or github.com/opensds/opensds
 
-* [Our Documentation](https://docs.opensds.io/) : 
-You can find the quick start guides and start using OpenSDS releases.
-See [COMMUNITY](https://docs.opensds.io/community/) for details on discussion of the OpenSDS architecture design and feature development.
+## Documentation
 
-## How to start ? 
+[https://docs.sodafoundation.io](https://docs.sodafoundation.io/)
 
-Please refer to [Try OpenSDS](https://docs.opensds.io/try-opensds/) to start using our releases and knowing more.
+## Quick Start - To Use/Experience
 
-## License
+[https://docs.sodafoundation.io](https://docs.sodafoundation.io/)
 
-OpenSDS is under the Apache 2.0 license. See the [LICENSE](LICENSE) file for details.
+## Quick Start - To Develop
 
-## Contact
-* Mailing list: [opensds-tech-discuss](https://lists.opensds.io/mailman/listinfo/opensds-tech-discuss)
-* slack: #[opensds](https://opensds.io/slack)
-* Ideas/Bugs: You can raise your ideas, requirements and issues at any of the projects under [our git organization](https://github.com/opensds/)
-* Join our community meetings. All the details, refer [our global community meeting agenda and notes](http://bit.ly/sodaglobalcommunitymeeting)
+[https://docs.sodafoundation.io](https://docs.sodafoundation.io/)
+
+## Latest Releases
+
+[https://github.com/sodafoundation/dock/releases](https://github.com/sodafoundation/dock/releases)
+
+## Support and Issues
+
+[https://github.com/sodafoundation/dock/issues](https://github.com/sodafoundation/dock/issues)
+
+## Project Community
+
+[https://sodafoundation.io/slack/](https://sodafoundation.io/slack/)
+
+## How to contribute to this project?
+
+Join [https://sodafoundation.io/slack/](https://sodafoundation.io/slack/) and share your interest in the ‘general’ channel
+
+Checkout [https://github.com/sodafoundation/dock/issues](https://github.com/sodafoundation/dock/issues) labelled with ‘good first issue’ or ‘help needed’ or ‘help wanted’ or ‘StartMyContribution’ or ‘SMC’
+
+## Project Roadmap
+
+Envision to have huge support for all the industry storage vendor driver support under dock with a standardized and unified storage backend interface.
+
+[https://docs.sodafoundation.io](https://docs.sodafoundation.io/)
+
+## Join SODA Foundation
+
+Website : [https://sodafoundation.io](https://sodafoundation.io/)
+
+Slack  : [https://sodafoundation.io/slack/](https://sodafoundation.io/slack/)
+
+Twitter  : @sodafoundation
+
+Mailinglist  : [https://lists.opensds.io](https://lists.opensds.io/groups)
