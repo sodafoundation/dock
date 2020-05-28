@@ -20,9 +20,8 @@ require (
 	github.com/go-ini/ini v1.41.0
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/groupcache v0.0.0-20191027212112-611e8accdfc9 // indirect
-	github.com/golang/protobuf v1.3.5
+	github.com/golang/protobuf v1.4.1
 	github.com/google/btree v1.0.0 // indirect
-	github.com/google/go-cmp v0.3.1 // indirect
 	github.com/gophercloud/gophercloud v0.0.0-20190528082055-3ad89c4ea008
 	github.com/gorilla/websocket v1.4.1 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.1.0 // indirect
@@ -47,11 +46,11 @@ require (
 	go.etcd.io/bbolt v1.3.3 // indirect
 	go.uber.org/zap v1.12.0 // indirect
 	golang.org/x/crypto v0.0.0-20190510104115-cbcb75029529
-	golang.org/x/net v0.0.0-20200324143707-d3edc9973b7e // indirect
-	golang.org/x/sys v0.0.0-20200331124033-c3d80250170d // indirect
+	golang.org/x/net v0.0.0-20200506145744-7e3656a0809f // indirect
+	golang.org/x/sys v0.0.0-20200509044756-6aff5f38e54f // indirect
 	golang.org/x/time v0.0.0-20191024005414-555d28b269f0 // indirect
-	google.golang.org/genproto v0.0.0-20200403120447-c50568487044 // indirect
-	google.golang.org/grpc v1.28.0
+	google.golang.org/genproto v0.0.0-20200507105951-43844f6eee31 // indirect
+	google.golang.org/grpc v1.29.1
 	gopkg.in/ini.v1 v1.50.0 // indirect
 	gopkg.in/yaml.v2 v2.2.4
 	k8s.io/api v0.17.0 // indirect
