@@ -31,11 +31,12 @@ require (
 	github.com/jonboulle/clockwork v0.1.0 // indirect
 	github.com/mitchellh/copystructure v1.0.0 // indirect
 	github.com/mitchellh/mapstructure v1.1.2
-	github.com/netapp/trident v19.10.0+incompatible
+	github.com/netapp/trident v19.10.1+incompatible
 	github.com/prometheus/client_golang v0.9.2
 	github.com/prometheus/common v0.3.0 // indirect
 	github.com/prometheus/procfs v0.0.0-20190425082905-87a4384529e0 // indirect
 	github.com/satori/go.uuid v1.2.0
+	github.com/sirupsen/logrus v1.4.2
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/soheilhy/cmux v0.1.4 // indirect
 	github.com/spf13/cobra v0.0.3
