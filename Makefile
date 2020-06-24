@@ -41,7 +41,7 @@ metricexporter:
 
 docker: build
 	cp $(BUILD_DIR)/bin/osdsdock ./cmd/osdsdock
-	docker build cmd/osdsdock -t opensdsio/opensds-dock:latest
+	docker build cmd/osdsdock -t sodafoundation/dock:latest
 
 test: build
 	install/CI/test
