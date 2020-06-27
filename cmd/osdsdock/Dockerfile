@@ -4,7 +4,6 @@
 # 	docker run -d --privileged=true --net=host -v /etc/opensds:/etc/opensds sodafoundation/dock:latest
 
 FROM ubuntu:16.04
-MAINTAINER Leon Wang <wanghui71leon@gmail.com>
 
 COPY osdsdock /usr/bin
 
