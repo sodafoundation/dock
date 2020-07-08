@@ -1,0 +1,22 @@
+backendOptions:
+  Username: "admin"
+  Password: "password"
+  DriverName: "eseries-san"
+  HostDataIP: "127.0.0.1"
+  Size: 100
+  Protocol: "iscsi"
+  HostType: ""
+  AccessGroup: ""
+  Version: 1
+pool:
+  eseries-pool:
+    storageType: block
+    availabilityZone: default
+    multiAttach: true
+    extras:
+      dataStorage:
+        provisioningPolicy: Thin
+        compression: false
+        deduplication: false
+      ioConnectivity:
+        accessProtocol: iscsi

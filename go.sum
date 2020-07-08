@@ -190,6 +190,8 @@ github.com/mwitkow/go-conntrack v0.0.0-20161129095857-cc309e4a2223/go.mod h1:qRW
 github.com/mxk/go-flowrate v0.0.0-20140419014527-cca7078d478f/go.mod h1:ZdcZmHo+o7JKHSa8/e818NopupXU1YMK5fe1lsApnBw=
 github.com/netapp/trident v19.10.0+incompatible h1:CW3bMGMD7wAqiKMqTXfbU9dlVZ3lQS2XZQ8d1aFXOJI=
 github.com/netapp/trident v19.10.0+incompatible/go.mod h1:Y/ApJGWR8gPjIMX11FbrJy4gvTS3coV+XFopqAWeMwM=
+github.com/netapp/trident v19.10.1+incompatible h1:ztoXQsTPvfSzIhGFQ7im49xVIIe+rnq2glOgb2fleZc=
+github.com/netapp/trident v19.10.1+incompatible/go.mod h1:Y/ApJGWR8gPjIMX11FbrJy4gvTS3coV+XFopqAWeMwM=
 github.com/onsi/ginkgo v0.0.0-20170829012221-11459a886d9c/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/ginkgo v1.10.1/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
