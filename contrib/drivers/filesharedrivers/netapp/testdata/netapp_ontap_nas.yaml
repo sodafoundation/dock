@@ -1,0 +1,32 @@
+backendOptions:
+  version: 1
+  username: "admin"
+  password: "admin"
+  storageDriverName: "ontap-nas"
+  managementLIF: "11.242.178.20"
+  dataLIF: "11.242.178.21"
+  svm: "svm_test"
+pool:
+  aggr0:
+    storageType: file
+    availabilityZone: default
+    multiAttach: true
+    extras:
+      dataStorage:
+        provisioningPolicy: Thin
+        compression: false
+        deduplication: false
+        storageAccessCapability:
+          - Read
+          - Write
+          - Execute
+      ioConnectivity:
+        accessProtocol: nfs
+        maxIOPS: 7000000
+        maxBWS: 600
+        minIOPS: 1000000
+        minBWS: 100
+        latency: 100
+      advanced:
+        diskType: SSD
+        latency: 5ms

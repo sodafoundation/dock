@@ -65,6 +65,7 @@ type Backends struct {
 	FujitsuEternus       BackendProperties `conf:"fujitsu_eternus"`
 	Chubaofs             BackendProperties `conf:"chubaofs"`
 	NetappOntapSan       BackendProperties `conf:"netapp_ontap_san"`
+	NetappOntapNas       BackendProperties `conf:"netapp_ontap_nas"`
 }
 
 type KeystoneAuthToken struct {
