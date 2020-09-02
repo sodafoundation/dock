@@ -15,17 +15,20 @@ package netapp
 
 //  default value for driver
 const (
-	defaultConfPath   = "/etc/opensds/driver/netapp_ontap_nas.yaml"
-	DefaultAZ         = "default"
-	fileSharePrefix   = "SODA_"
-	snapshotPrefix    = "SODA_snapshot_"
-	KFileshareName    = "nfsFileshareName"
-	KLvPath           = "lunPath"
-	KLvIdFormat       = "NAA"
-	StorageDriverName = "ontap-nas"
-	driverContext     = "csi"
-	VolumeVersion     = "1"
-	SnapshotVersion   = "1"
-	accessMode        = ""
-	bytesGiB          = 1073741824
+	defaultConfPath    = "/etc/opensds/driver/netapp_ontap_nas.yaml"
+	DefaultAZ          = "default"
+	fileSharePrefix    = "SODA_"
+	snapshotPrefix     = "SODA_snapshot_"
+	KFileshareName     = "nfsFileshareName"
+	KFileshareID       = "nfsFileshareID"
+	KFileshareSnapName = "snapshotName"
+	KFileshareSnapID   = "snapshotID"
+	KLvPath            = "lunPath"
+	KLvIdFormat        = "NAA"
+	StorageDriverName  = "ontap-nas"
+	driverContext      = "csi"
+	VolumeVersion      = "1"
+	SnapshotVersion    = "1"
+	accessMode         = ""
+	bytesGiB           = 1073741824
 )

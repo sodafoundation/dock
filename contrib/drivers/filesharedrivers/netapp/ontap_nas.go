@@ -48,6 +48,8 @@ func (d *NASDriver) GetVolumeConfig(name string, size int64) (volConfig *storage
 	return volConfig
 }
 
+// This function reads the config file for the driver in /etc/opensds/driver
+// and creates a connection with the storage
 func (d *NASDriver) Setup() error {
 	// Read NetApp ONTAP config file
 	d.conf = &ONTAPConfig{}
@@ -101,7 +103,7 @@ func (d *NASDriver) Setup() error {
 		return err
 	}
 
-	// Create the NAS Storage driver instance fromt he trident driver
+	// Create the NAS Storage driver instance from the trident driver
 	d.nasStorageDriver = &ontap.NASStorageDriver{
 		Config: *config,
 	}
@@ -141,6 +143,10 @@ func (d *NASDriver) CreateFileShare(opt *pb.CreateFileShareOpts) (vol *model.Fil
 		log.Errorf("create nas fileshare (%s) failed: %v", opt.GetId(), err)
 		return nil, err
 	}
+	var exportLocation []string
+	server := d.conf.DataLIF
+	location := server + ":/" + name
+	exportLocation = append(exportLocation, location)
 
 	return &model.FileShareSpec{
 		BaseModel: &model.BaseModel{
@@ -152,8 +158,9 @@ func (d *NASDriver) CreateFileShare(opt *pb.CreateFileShareOpts) (vol *model.Fil
 		Protocols:        []string{NFSProtocol},
 		AvailabilityZone: opt.GetAvailabilityZone(),
 		PoolId:           opt.GetPoolId(),
+		ExportLocations:  exportLocation,
 		Metadata: map[string]string{
-			"nfsFileshareName": name,
+			KFileshareName: name,
 		},
 	}, nil
 }
@@ -219,12 +226,64 @@ func (d *NASDriver) DeleteFileShare(opts *pb.DeleteFileShareOpts) error {
 	return nil
 }
 
+// Function to create a fileshare snapshot for th specified fileshare (volume in backend)
 func (d *NASDriver) CreateFileShareSnapshot(opts *pb.CreateFileShareSnapshotOpts) (*model.FileShareSnapshotSpec, error) {
-	return nil, &model.NotImplementError{"Method is not implemented"}
+	snapName := opts.GetName()
+	fileshareName := opts.GetMetadata()[KFileshareName]
+	log.Infof("creating snapshot for fileshare %s", fileshareName)
+
+	snapConfig := &storage.SnapshotConfig{
+		Version:            SnapshotVersion,
+		Name:               snapName,
+		InternalName:       snapName,
+		VolumeName:         fileshareName,
+		VolumeInternalName: fileshareName,
+	}
+	snapshot, err := d.nasStorageDriver.CreateSnapshot(snapConfig)
+
+	if err != nil {
+		log.Errorf("create snapshot for %s with snapshot name %s failed with err %s",
+			fileshareName, snapName, err)
+		return nil, err
+	}
+
+	log.Infof("snapshot %s created successfully for fileshare %s", snapName, fileshareName)
+	return &model.FileShareSnapshotSpec{
+		BaseModel: &model.BaseModel{
+			Id: opts.GetId(),
+		},
+		Name:         opts.GetName(),
+		SnapshotSize: snapshot.SizeBytes / bytesGiB,
+		Description:  opts.GetDescription(),
+		Metadata: map[string]string{
+			KFileshareSnapName: snapName,
+			KFileshareSnapID:   opts.GetId(),
+			KFileshareName:     fileshareName,
+		},
+	}, nil
 }
 
+// Function to delete a fileshare snapshot for th specified fileshare (volume in backend)
 func (d *NASDriver) DeleteFileShareSnapshot(opts *pb.DeleteFileShareSnapshotOpts) error {
-	return &model.NotImplementError{"Method is not implemented"}
+	snapName := opts.GetMetadata()[KFileshareSnapName]
+	fileshareName := opts.GetMetadata()[KFileshareName]
+
+	snapConfig := &storage.SnapshotConfig{
+		Version:            SnapshotVersion,
+		Name:               snapName,
+		InternalName:       snapName,
+		VolumeName:         fileshareName,
+		VolumeInternalName: fileshareName,
+	}
+
+	err := d.nasStorageDriver.DeleteSnapshot(snapConfig)
+	if err != nil {
+		log.Errorf("delete snapshot for %s with snapshot name %s failed with err %s",
+			fileshareName, snapName, err)
+		return err
+	}
+	log.Infof("successfully deleted snapshot %s of fileshare %s", snapName, fileshareName)
+	return nil
 }
 
 func (d *NASDriver) CreateFileShareAcl(opt *pb.CreateFileShareAclOpts) (*model.FileShareAclSpec, error) {
