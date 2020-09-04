@@ -113,7 +113,7 @@ func (d *NASDriver) Setup() error {
 		log.Errorf("could not initialize storage driver (%s). failed: %v", commonConfig.StorageDriverName, err)
 		return err
 	}
-	log.Infof("storage driver (%s) initialized successfully.", commonConfig.StorageDriverName)
+	log.Infof("Storage driver (%s) initialized successfully.", commonConfig.StorageDriverName)
 
 	return nil
 }
@@ -168,7 +168,7 @@ func (d *NASDriver) CreateFileShare(opt *pb.CreateFileShareOpts) (vol *model.Fil
 // This method lists all the associated aggregates on the
 // provided SVM of the filer (SVM is provided as part of config)
 func (d *NASDriver) ListPools() ([]*model.StoragePoolSpec, error) {
-	log.Info("entered to list pools for netapp nas")
+	log.Info("Entered to list pools for netapp nas")
 
 	var pools []*model.StoragePoolSpec
 	aggregates, err := d.nasStorageDriver.API.VserverGetAggregateNames()
@@ -206,7 +206,7 @@ func (d *NASDriver) ListPools() ([]*model.StoragePoolSpec, error) {
 		pools = append(pools, pool)
 	}
 
-	log.Info("list pools successfully:", pools)
+	log.Info("List pools successfully:", pools)
 	return pools, nil
 }
 
@@ -222,7 +222,7 @@ func (d *NASDriver) DeleteFileShare(opts *pb.DeleteFileShareOpts) error {
 		return err
 	}
 
-	log.Info("deleted fileshare:", name)
+	log.Info("Deleted fileshare:", name)
 	return nil
 }
 
@@ -230,7 +230,7 @@ func (d *NASDriver) DeleteFileShare(opts *pb.DeleteFileShareOpts) error {
 func (d *NASDriver) CreateFileShareSnapshot(opts *pb.CreateFileShareSnapshotOpts) (*model.FileShareSnapshotSpec, error) {
 	snapName := opts.GetName()
 	fileshareName := opts.GetMetadata()[KFileshareName]
-	log.Infof("creating snapshot for fileshare %s", fileshareName)
+	log.Infof("Creating snapshot for fileshare %s", fileshareName)
 
 	snapConfig := &storage.SnapshotConfig{
 		Version:            SnapshotVersion,
@@ -247,7 +247,7 @@ func (d *NASDriver) CreateFileShareSnapshot(opts *pb.CreateFileShareSnapshotOpts
 		return nil, err
 	}
 
-	log.Infof("snapshot %s created successfully for fileshare %s", snapName, fileshareName)
+	log.Infof("Snapshot %s created successfully for fileshare %s", snapName, fileshareName)
 	return &model.FileShareSnapshotSpec{
 		BaseModel: &model.BaseModel{
 			Id: opts.GetId(),
@@ -282,14 +282,14 @@ func (d *NASDriver) DeleteFileShareSnapshot(opts *pb.DeleteFileShareSnapshotOpts
 			fileshareName, snapName, err)
 		return err
 	}
-	log.Infof("successfully deleted snapshot %s of fileshare %s", snapName, fileshareName)
+	log.Infof("Successfully deleted snapshot %s of fileshare %s", snapName, fileshareName)
 	return nil
 }
 
 func (d *NASDriver) CreateFileShareAcl(opt *pb.CreateFileShareAclOpts) (*model.FileShareAclSpec, error) {
-	return nil, &model.NotImplementError{"Method is not implemented"}
+	return nil, &model.NotImplementError{"method is not implemented"}
 }
 
 func (d *NASDriver) DeleteFileShareAcl(opt *pb.DeleteFileShareAclOpts) error {
-	return &model.NotImplementError{"Method is not implemented"}
+	return &model.NotImplementError{"method is not implemented"}
 }
