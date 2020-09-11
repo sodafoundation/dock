@@ -23,6 +23,7 @@ package filesharedrivers
 import (
 	"github.com/sodafoundation/dock/contrib/drivers/filesharedrivers/chubaofs"
 	"github.com/sodafoundation/dock/contrib/drivers/filesharedrivers/manila"
+	"github.com/sodafoundation/dock/contrib/drivers/filesharedrivers/netapp"
 	nfs "github.com/sodafoundation/dock/contrib/drivers/filesharedrivers/nfs"
 	"github.com/sodafoundation/dock/contrib/drivers/filesharedrivers/oceanstor"
 	"github.com/sodafoundation/dock/contrib/drivers/utils/config"
@@ -68,6 +69,9 @@ func Init(resourceType string) FileShareDriver {
 	case config.ChubaofsDriverType:
 		f = &chubaofs.Driver{}
 		break
+	case config.NetappOntapNasDriverType:
+		f = &netapp.NASDriver{}
+		break
 	default:
 		f = &sample.Driver{}
 		break
@@ -86,6 +90,8 @@ func Clean(f FileShareDriver) FileShareDriver {
 		break
 	case *sample.Driver:
 		break
+	case *netapp.NASDriver:
+        break
 	default:
 		break
 	}
