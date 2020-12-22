@@ -29,6 +29,9 @@ import (
 	log "github.com/golang/glog"
 	"github.com/sodafoundation/dock/contrib/connector"
 	"github.com/sodafoundation/dock/contrib/drivers"
+	// Initialize the multicloud driver once
+	uuid "github.com/satori/go.uuid"
+	_ "github.com/sodafoundation/dock/contrib/backup/multicloud"
 	fd "github.com/sodafoundation/dock/contrib/drivers/filesharedrivers"
 	"github.com/sodafoundation/dock/contrib/drivers/utils/config"
 	c "github.com/sodafoundation/dock/pkg/context"
@@ -36,7 +39,6 @@ import (
 	"github.com/sodafoundation/dock/pkg/model"
 	"github.com/sodafoundation/dock/pkg/utils"
 	. "github.com/sodafoundation/dock/pkg/utils/config"
-	uuid "github.com/satori/go.uuid"
 )
 
 const (

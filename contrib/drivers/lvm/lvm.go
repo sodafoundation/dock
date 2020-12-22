@@ -401,7 +401,6 @@ func (d *Driver) deleteUploadedSnapshot(backupId string, bucket string) error {
 
 func (d *Driver) CreateSnapshot(opt *pb.CreateVolumeSnapshotOpts) (snap *model.VolumeSnapshotSpec, err error) {
 	var snapName = snapshotPrefix + opt.GetId()
-
 	lvPath, ok := opt.GetMetadata()[KLvPath]
 	if !ok {
 		err := errors.New("can't find 'lvPath' in snapshot metadata")
@@ -420,6 +419,7 @@ func (d *Driver) CreateSnapshot(opt *pb.CreateVolumeSnapshotOpts) (snap *model.V
 	metadata := map[string]string{KLvsPath: lvsPath}
 
 	if bucket, ok := opt.Metadata["bucket"]; ok {
+
 		//nvmet right now can not support snap volume serve as nvme target
 		if vg == opensdsnvmepool {
 			log.Infof("nvmet right now can not support snap volume serve as nvme target")
@@ -532,7 +532,6 @@ func (d *Driver) InitializeSnapshotConnection(opt *pb.CreateSnapshotAttachmentOp
 	if hostIP == "" {
 		hostIP = d.conf.TgtBindIp
 	}
-
 	lvsPath, ok := opt.GetMetadata()[KLvsPath]
 	if !ok {
 		err := errors.New("Failed to find logic volume path in volume attachment metadata!")
@@ -543,13 +542,13 @@ func (d *Driver) InitializeSnapshotConnection(opt *pb.CreateSnapshotAttachmentOp
 	if d.conf.EnableChapAuth {
 		chapAuth = []string{utils.RandSeqWithAlnum(20), utils.RandSeqWithAlnum(16)}
 	}
-
 	accPro := opt.AccessProtocol
 	if accPro == nvmeofAccess {
 		log.Infof("nvmet right now can not support snap volume serve as nvme target")
 		log.Infof("still create snapshot connection by iscsi")
 		accPro = iscsiAccess
 	}
+	accPro = iscsiAccess
 	t := targets.NewTarget(d.conf.TgtBindIp, d.conf.TgtConfDir, accPro)
 	data, err := t.CreateExport(opt.GetSnapshotId(), lvsPath, hostIP, initiator, chapAuth)
 	if err != nil {

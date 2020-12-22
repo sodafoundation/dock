@@ -36,7 +36,7 @@ const (
 	DefaultTenantId      = "adminTenantId"
 	DefaultTimeout       = 60 // in Seconds
 	DefaultUploadTimeout = 30 // in Seconds
-	ApiVersion           = "v1"
+	ApiVersion           = ""
 )
 
 type Client struct {
@@ -175,7 +175,7 @@ func (c *Client) doRequest(method, u string, in interface{}, cb ReqSettingCB) ([
 		return nil, nil, err
 	}
 
-	log.V(5).Infof("%s: %s OK\n", method, u)
+	log.Infof("%s: %s OK\n", method, u)
 	rbody, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Errorf("Get byte[] from response failed, method: %s\n url: %s\n error: %v", method, u, err)
@@ -201,7 +201,7 @@ func (c *Client) request(method, p string, in, out interface{}, cb ReqSettingCB)
 	}
 
 	if out != nil {
-		log.V(5).Infof("Response:\n%s\n", string(b))
+		log.Infof("Response:\n%s\n", string(b))
 		err := xml.Unmarshal(b, out)
 		if err != nil {
 			log.Errorf("unmarshal error, reason:%v", err)
@@ -253,13 +253,13 @@ type CompleteMultipartUploadResult struct {
 }
 
 func (c *Client) UploadObject(bucketName, objectKey string, data []byte) error {
-	p := path.Join("s3", bucketName, objectKey)
+	p := path.Join(bucketName, objectKey)
 	err := c.request("PUT", p, data, nil, nil)
 	return err
 }
 
 func (c *Client) ListObject(bucketName string) (*ListObjectResponse, error) {
-	p := path.Join("s3", bucketName)
+	p := path.Join(bucketName)
 	object := &ListObjectResponse{}
 	if err := c.request("GET", p, nil, object, nil); err != nil {
 		return nil, err
@@ -268,13 +268,13 @@ func (c *Client) ListObject(bucketName string) (*ListObjectResponse, error) {
 }
 
 func (c *Client) RemoveObject(bucketName, objectKey string) error {
-	p := path.Join("s3", bucketName, objectKey)
+	p := path.Join(bucketName, objectKey)
 	err := c.request("DELETE", p, nil, nil, nil)
 	return err
 }
 
 func (c *Client) InitMultiPartUpload(bucketName, objectKey string) (*InitiateMultipartUploadResult, error) {
-	p := path.Join("s3", bucketName, objectKey)
+	p := path.Join(bucketName, objectKey)
 	p += "?uploads"
 	out := &InitiateMultipartUploadResult{}
 	if err := c.request("PUT", p, nil, out, nil); err != nil {
@@ -285,7 +285,7 @@ func (c *Client) InitMultiPartUpload(bucketName, objectKey string) (*InitiateMul
 
 func (c *Client) UploadPart(bucketName, objectKey string, partNum int64, uploadId string, data []byte, size int64) (*UploadPartResult, error) {
 	log.Infof("upload part buf size:%d", len(data))
-	p := path.Join("s3", bucketName, objectKey)
+	p := path.Join(bucketName, objectKey)
 	p += fmt.Sprintf("?partNumber=%d&uploadId=%s", partNum, uploadId)
 	out := &UploadPartResult{}
 	reqSettingCB := func(req *httplib.BeegoHTTPRequest) error {
@@ -305,7 +305,7 @@ func (c *Client) CompleteMultipartUpload(
 	uploadId string,
 	input *CompleteMultipartUpload) (*CompleteMultipartUploadResult, error) {
 
-	p := path.Join("s3", bucketName, objectKey)
+	p := path.Join(bucketName, objectKey)
 	p += fmt.Sprintf("?uploadId=%s", uploadId)
 	out := &CompleteMultipartUploadResult{}
 	if err := c.request("PUT", p, input, nil, nil); err != nil {

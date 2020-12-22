@@ -40,7 +40,7 @@ var ctorFunMap = map[string]ctorFun{}
 func NewBackup(backupDriverName string) (BackupDriver, error) {
 	fun, exist := ctorFunMap[backupDriverName]
 	if !exist {
-		return nil, fmt.Errorf("specified backup driver does not exist")
+		return nil, fmt.Errorf("specified backup driver does not exist ", backupDriverName)
 	}
 
 	drv, err := fun()

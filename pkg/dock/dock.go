@@ -24,6 +24,7 @@ import (
 	"errors"
 	"fmt"
 	"net"
+	"time"
 
 	log "github.com/golang/glog"
 	"github.com/sodafoundation/dock/contrib/connector"
@@ -35,6 +36,7 @@ import (
 	"github.com/sodafoundation/dock/pkg/model"
 	pb "github.com/sodafoundation/dock/pkg/model/proto"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/keepalive"
 
 	_ "github.com/sodafoundation/dock/contrib/connector/fc"
 	_ "github.com/sodafoundation/dock/contrib/connector/iscsi"
@@ -72,7 +74,10 @@ func NewDockServer(dockType, port string) *dockServer {
 // backends, and then start the listen mechanism of dock module.
 func (ds *dockServer) Run() error {
 	// New Grpc Server
-	s := grpc.NewServer()
+	s := grpc.NewServer(grpc.KeepaliveParams(keepalive.ServerParameters{
+		MaxConnectionIdle: 5 * time.Minute, // Keep the connection alive
+	}),
+	)
 	// Register dock service.
 	pb.RegisterProvisionDockServer(s, ds)
 	pb.RegisterAttachDockServer(s, ds)
