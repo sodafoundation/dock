@@ -63,7 +63,7 @@ type MultiCloud struct {
 
 func (m *MultiCloud) loadConf(p string) (*MultiCloudConf, error) {
 	conf := &MultiCloudConf{
-		Endpoint:      "http://127.0.0.1:8088",
+		Endpoint:      "http://127.0.0.1:8090",
 		UploadTimeout: DefaultUploadTimeout,
 	}
 	confYaml, err := ioutil.ReadFile(p)
@@ -82,6 +82,7 @@ func (m *MultiCloud) SetUp() error {
 	// Set the default value
 	var err error
 	if m.conf, err = m.loadConf(ConfFile); err != nil {
+		glog.Errorf("setting up failed for MC")
 		return err
 	}
 
@@ -108,7 +109,7 @@ func (m *MultiCloud) Backup(backup *backup.BackupSpec, volFile *os.File) error {
 	key := backup.Id
 	initResp, err := m.client.InitMultiPartUpload(bucket, key)
 	if err != nil {
-		glog.Errorf("Init part failed, err:%v", err)
+		glog.Errorf("Init part failed, err:%v key %v", err, key)
 		return err
 	}
 
