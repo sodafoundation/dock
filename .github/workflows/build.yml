@@ -1,4 +1,4 @@
-name: CI Build
+name: CI Build //comments
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
       GO111MODULE: on
       TARGET: amd64
         
-    strategy:
+    strategy:  //comment
 #       max-parallel: 2
       matrix:
         go-version: [1.13.x]
@@ -39,7 +39,7 @@ jobs:
       run: make all 
 
     - name: Run CI scripts for Testing
-      run: ./install/CI/coverage && ./install/CI/test
+      run: ./install/CI/coverage && ./install/CI/test //comment
     
     - name: After success run Codecov Coverage tool.
       run: bash <(curl -s https://codecov.io/bash)
