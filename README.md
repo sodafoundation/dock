@@ -12,7 +12,7 @@
 
 SODA Dock is an open source implementation for the unified interface to connect heterogeneous storage backends. So dock is a docking station for heterogeneous storage backends! This is where all the different storage vendors drivers for various storage backend models get attached.
 
-It is part of SODA Terra (SDS Controller). There are other two repositories part of SODA Terra viz., [API](https://github.com/sodafoundation/api) and [Dock](https://github.com/sodafoundation/dock)
+It is part of SODA Terra (SDS Controller). There are other two repositories part of SODA Terra viz., [API](https://github.com/sodafoundation/api) and [Controller](https://github.com/sodafoundation/controller)
 
 
 We strive to make most of the protocols and backends supported as close as ‘plug n play’. Currently, each storage backend needs a thin, easy to develop SODA Driver Plugin to connect the storage backend to the DOCK. The SODA Driver Plugin and Storage vendor driver together can be called SODA Driver for xxx vendor yy model storage. SODA Driver can support one or more or multiple classes of storage backends.
