@@ -40,22 +40,22 @@ func TestDaemon(t *testing.T) {
 	copy(bakArgs, os.Args)
 
 	t1 := []string{"testcase1", "-daemon"}
-	osArgsHelper(t, t1...)
+	osArgsHelper(t1...)
 	CheckAndRunDaemon(true)
 	check(t, t1[0])
 
 	t2 := []string{"testcase2", "-daemon=true"}
-	osArgsHelper(t, t2...)
+	osArgsHelper(t2...)
 	CheckAndRunDaemon(true)
 	check(t, t2[0])
 
 	t3 := []string{"testcase3", "-daemon=false"}
-	osArgsHelper(t, t3...)
+	osArgsHelper(t3...)
 	CheckAndRunDaemon(false)
 	check(t)
 
 	t4 := []string{"testcase3", "daemon"}
-	osArgsHelper(t, t4...)
+	osArgsHelper(t4...)
 	CheckAndRunDaemon(true)
 	check(t, t4...)
 
@@ -63,7 +63,7 @@ func TestDaemon(t *testing.T) {
 	os.Args = bakArgs
 }
 
-func osArgsHelper(t *testing.T, s ...string) {
+func osArgsHelper(s ...string) {
 	cs := []string{os.Args[0], "-test.run=TestHelperProcess", "--"}
 	os.Args = append(cs, s...)
 }
@@ -95,7 +95,6 @@ func writeToTestFile(t *testing.T, s string) {
 }
 
 func TestHelperProcess(t *testing.T) {
-	defer os.Exit(0)
 	args := os.Args
 	for len(args) > 0 {
 		if args[0] == "--" {
@@ -106,8 +105,6 @@ func TestHelperProcess(t *testing.T) {
 	}
 	if len(args) == 0 {
 		fmt.Fprint(os.Stderr, "No command\n")
-		os.Exit(0)
 	}
-
 	writeToTestFile(t, strings.Join(args, " "))
 }

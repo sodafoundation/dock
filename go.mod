@@ -1,6 +1,6 @@
 module github.com/sodafoundation/dock
 
-go 1.12
+go 1.17
 
 require (
 	github.com/LINBIT/godrbdutils v0.0.0-20180425110027-65b98a0f103a
@@ -41,9 +41,7 @@ require (
 	github.com/spf13/cobra v0.0.3
 	github.com/stretchr/testify v1.4.0
 	github.com/tmc/grpc-websocket-proxy v0.0.0-20190109142713-0ad062ec5ee5 // indirect
-	github.com/ugorji/go v1.1.7 // indirect
 	github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 // indirect
-	go.etcd.io/bbolt v1.3.3 // indirect
 	go.uber.org/zap v1.12.0 // indirect
 	golang.org/x/crypto v0.0.0-20190510104115-cbcb75029529
 	golang.org/x/net v0.0.0-20200506145744-7e3656a0809f // indirect
@@ -54,4 +52,31 @@ require (
 	gopkg.in/ini.v1 v1.50.0 // indirect
 	gopkg.in/yaml.v2 v2.2.4
 	k8s.io/api v0.17.0 // indirect
+)
+
+require (
+	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/glycerine/go-unsnap-stream v0.0.0-20181221182339-f9677308dec2 // indirect
+	github.com/gogo/protobuf v1.2.2-0.20190723190241-65acae22fc9d // indirect
+	github.com/golang/snappy v0.0.1 // indirect
+	github.com/google/gofuzz v1.0.0 // indirect
+	github.com/google/uuid v1.1.1 // indirect
+	github.com/konsorten/go-windows-terminal-sequences v1.0.1 // indirect
+	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
+	github.com/mitchellh/reflectwalk v1.0.0 // indirect
+	github.com/mschoch/smat v0.0.0-20160514031455-90eadee771ae // indirect
+	github.com/philhofer/fwd v1.0.0 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4 // indirect
+	github.com/sirupsen/logrus v1.4.2 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/stretchr/objx v0.1.1 // indirect
+	github.com/tinylib/msgp v1.1.0 // indirect
+	github.com/ugorji/go/codec v1.1.7 // indirect
+	github.com/willf/bitset v1.1.10 // indirect
+	golang.org/x/text v0.3.2 // indirect
+	google.golang.org/protobuf v1.22.0 // indirect
+	gopkg.in/inf.v0 v0.9.1 // indirect
+	k8s.io/apimachinery v0.17.0 // indirect
+	k8s.io/klog v1.0.0 // indirect
 )
