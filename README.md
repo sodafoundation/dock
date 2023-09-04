@@ -6,67 +6,61 @@
 [![Releases](https://img.shields.io/github/release/sodafoundation/dock/all.svg?style=flat-square)](https://github.com/sodafoundation/dock/releases)
 [![LICENSE](https://img.shields.io/github/license/sodafoundation/dock.svg?style=flat-square)](https://github.com/sodafoundation/dock/blob/master/LICENSE)
 
-<img src="https://sodafoundation.io/wp-content/uploads/2020/01/SODA_logo_outline_color_800x800.png" width="200" height="200">
+![SODA Logo](https://sodafoundation.io/wp-content/uploads/2020/01/SODA_logo_outline_color_800x800.png)
 
-## Introduction
+## Overview
 
-SODA Dock is an open source implementation for the unified interface to connect heterogeneous storage backends. So dock is a docking station for heterogeneous storage backends! This is where all the different storage vendors drivers for various storage backend models get attached.
+SODA Dock is an essential component of the SODA Terra, a software-defined storage (SDS) controller. It acts as a docking station for various storage backends, enabling a unified interface to connect heterogeneous storage systems.
 
-It is part of SODA Terra (SDS Controller). There are other two repositories part of SODA Terra viz., [API](https://github.com/sodafoundation/api) and [Controller](https://github.com/sodafoundation/controller)
+## What is SODA Dock?
 
+SODA Dock is where different storage vendor drivers for various backend models attach, providing a seamless integration point for storage solutions. The aim is to support a vast range of protocols and backends, ensuring most of them are as close to 'plug n play' as possible.
 
-We strive to make most of the protocols and backends supported as close as ‘plug n play’. Currently, each storage backend needs a thin, easy to develop SODA Driver Plugin to connect the storage backend to the DOCK. The SODA Driver Plugin and Storage vendor driver together can be called SODA Driver for xxx vendor yy model storage. SODA Driver can support one or more or multiple classes of storage backends.
+Each storage backend requires a thin SODA Driver Plugin for connection. This plugin, combined with the vendor driver, can be termed as the SODA Driver for a particular vendor model. A SODA Driver can cater to one or more classes of storage backends.
 
-SODA DOCK can interface directly to SODA API or via Controller. We recommend through the controller for a complete end to end solution, as it can provide the metadata management, handling multiple dock etc. For the api to dock direct interfacing, currently the user needs to do the necessary changes.
+## Integration Points
 
-Plan to have multiple instance, multi driver docks to support multi-cluster, multi-platform or multi-cloud scenarios in future.
+The DOCK can interface directly with the SODA API or through the Controller. However, for a comprehensive solution, integration through the controller is recommended as it facilitates metadata management and handles multiple docks. For direct interfacing between the API and the DOCK, users must implement the necessary changes.
 
-This is one of the SODA Core Projects and is maintained by SODA Foundation directly. We recommend adding all the storage vendor drivers under this project to build a huge repository for the storage vendor support. However the soda driver plugins can be maintained anywhere, and if it is compliant with SODA API, it can be part of SODA Project Landscape.
+## Future Goals
 
-Earlier part of github.com/sodafoundation/opensds Or github.com/opensds/opensds
+Plans are in place to introduce multi-instance, multi-driver docks to support diverse scenarios, including multi-cluster, multi-platform, and multi-cloud.
 
-## Documentation
+## Affiliation
 
-[https://docs.sodafoundation.io](https://docs.sodafoundation.io/)
+SODA Dock is one of the core projects maintained directly by the SODA Foundation. We encourage storage vendors to add their drivers under this project, creating a vast repository for storage support. However, SODA driver plugins can be hosted elsewhere, and if compliant with the SODA API, they can be integrated into the SODA Project Landscape.
 
-## Quick Start - To Use/Experience
+Earlier, this was a part of [github.com/sodafoundation/opensds](https://github.com/sodafoundation/opensds) or [github.com/opensds/opensds](https://github.com/opensds/opensds).
 
-[https://docs.sodafoundation.io](https://docs.sodafoundation.io/)
+## Useful Links
 
-## Quick Start - To Develop
+- **Documentation**: [SODA Foundation Documentation](https://docs.sodafoundation.io/)
+  
+- **Quick Start (Usage)**: [Getting Started Guide](https://docs.sodafoundation.io/)
 
-[https://docs.sodafoundation.io](https://docs.sodafoundation.io/)
+- **Quick Start (Development)**: [Developer Guide](https://docs.sodafoundation.io/)
 
-## Latest Releases
+- **Latest Releases**: [Releases on GitHub](https://github.com/sodafoundation/dock/releases)
 
-[https://github.com/sodafoundation/dock/releases](https://github.com/sodafoundation/dock/releases)
+- **Support & Issues**: [GitHub Issues](https://github.com/sodafoundation/dock/issues)
 
-## Support and Issues
+- **Community**: [Join the SODA Slack](https://sodafoundation.io/slack/)
 
-[https://github.com/sodafoundation/dock/issues](https://github.com/sodafoundation/dock/issues)
+## How to Contribute?
 
-## Project Community
+1. Join the [SODA Slack Channel](https://sodafoundation.io/slack/) and share your interests in the ‘general’ channel.
+2. Browse the [SODA Dock GitHub Issues](https://github.com/sodafoundation/dock/issues) labeled with tags like ‘good first issue’, ‘help needed’, ‘StartMyContribution’, etc.
 
-[https://sodafoundation.io/slack/](https://sodafoundation.io/slack/)
+## Roadmap
 
-## How to contribute to this project?
+We envision a vast support base for all storage vendor drivers under the dock, creating a standardized and unified storage backend interface. More about the roadmap can be found [here](https://docs.sodafoundation.io/).
 
-Join [https://sodafoundation.io/slack/](https://sodafoundation.io/slack/) and share your interest in the ‘general’ channel
+## Connect with SODA Foundation
 
-Checkout [https://github.com/sodafoundation/dock/issues](https://github.com/sodafoundation/dock/issues) labelled with ‘good first issue’ or ‘help needed’ or ‘help wanted’ or ‘StartMyContribution’ or ‘SMC’
-
-## Project Roadmap
-
-Envision to have huge support for all the industry storage vendor driver support under dock with a standardized and unified storage backend interface.
-
-[https://docs.sodafoundation.io](https://docs.sodafoundation.io/)
-
-## Join SODA Foundation
-
-Website : [https://sodafoundation.io](https://sodafoundation.io/)
-
-Slack  : [https://sodafoundation.io/slack/](https://sodafoundation.io/slack/)
-
-Twitter  : [@sodafoundation](https://twitter.com/sodafoundation)
-
-Mailinglist  : [https://lists.sodafoundation.io](https://lists.sodafoundation.io/)
+- **Website**: [SODA Foundation](https://sodafoundation.io/)
+  
+- **Slack**: [Join the Conversation](https://sodafoundation.io/slack/)
+  
+- **Twitter**: [Follow @sodafoundation](https://twitter.com/sodafoundation)
+  
+- **Mailing List**: [SODA Foundation Mailing List](https://lists.sodafoundation.io/)
