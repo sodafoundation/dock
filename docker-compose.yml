@@ -5,7 +5,7 @@ services:
     tty: true
     network_mode: "host"
     volumes:
-    - /etc/opensds:/etc/opensds
+    - /etc/soda:/etc/soda
     depends_on:
     - osdsdb
     - osdsauthchecker
@@ -16,7 +16,7 @@ services:
     tty: true
     network_mode: "host"
     volumes:
-    - /etc/opensds:/etc/opensds
+    - /etc/soda:/etc/soda
     depends_on:
     - osdsdb
     restart: on-failure
@@ -26,7 +26,7 @@ services:
     tty: true
     privileged: true
     volumes:
-    - /etc/opensds:/etc/opensds
+    - /etc/soda:/etc/soda
     - /etc/ceph:/etc/ceph
     - /etc/tgt:/etc/tgt:shared
     - /run/:/run/:shared
@@ -46,7 +46,7 @@ services:
     - /usr/share/ca-certificates/:/etc/ssl/certs
     restart: on-failure
   osdsauthchecker:
-    image: 'opensdsio/opensds-authchecker:latest'
+    image: 'sodaio/soda-authchecker:latest'
     tty: true
     network_mode: "host"
     privileged: true
@@ -57,6 +57,6 @@ services:
     network_mode: "host"
     restart: on-failure
     environment:
-    - OPENSDS_AUTH_URL=http://127.0.0.1/identity
-    - OPENSDS_HOTPOT_URL=http://127.0.0.1:50040
-    - OPENSDS_GELATO_URL=http://127.0.0.1:8089
+    - SODA_AUTH_URL=http://127.0.0.1/identity
+    - SODA_HOTPOT_URL=http://127.0.0.1:50040
+    - SODA_GELATO_URL=http://127.0.0.1:8089

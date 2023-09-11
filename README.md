@@ -23,7 +23,7 @@ Plan to have multiple instance, multi driver docks to support multi-cluster, mul
 
 This is one of the SODA Core Projects and is maintained by SODA Foundation directly. We recommend adding all the storage vendor drivers under this project to build a huge repository for the storage vendor support. However the soda driver plugins can be maintained anywhere, and if it is compliant with SODA API, it can be part of SODA Project Landscape.
 
-Earlier part of github.com/sodafoundation/opensds Or github.com/opensds/opensds
+Earlier part of github.com/sodafoundation/soda Or github.com/soda/soda
 
 ## Documentation
 
