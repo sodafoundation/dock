@@ -1,4 +1,4 @@
-// Copyright 2018 The OpenSDS Authors.
+// Copyright 2018 The SODA Authors.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /*
-This module implements a sample driver for OpenSDS. This driver will handle all
+This module implements a sample driver for SODA. This driver will handle all
 operations of volume and return a fake value.
 
 */

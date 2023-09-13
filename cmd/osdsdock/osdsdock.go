@@ -1,4 +1,4 @@
-// Copyright 2019 The OpenSDS Authors.
+// Copyright 2019 The SODA Authors.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 // limitations under the License.
 
 /*
-This module implements a entry into the OpenSDS REST service.
+This module implements a entry into the SODA REST service.
 
 */
 
@@ -21,6 +21,7 @@ package main
 
 import (
 	"flag"
+
 	"github.com/sodafoundation/dock/pkg/dock"
 	"github.com/sodafoundation/dock/pkg/model"
 	"github.com/sodafoundation/dock/pkg/utils/constants"
@@ -46,7 +47,7 @@ func init() {
 }
 
 func main() {
-	// Open OpenSDS dock service log file.
+	// Open SODA dock service log file.
 	logs.InitLogs(CONF.OsdsDock.LogFlushFrequency)
 	defer logs.FlushLogs()
 

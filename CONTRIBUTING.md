@@ -1,4 +1,4 @@
-# OpenSDS
+# SODA
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/opensds/opensds?branch=master)](https://goreportcard.com/report/github.com/opensds/opensds)
 [![Build Status](https://travis-ci.org/opensds/opensds.svg?branch=master)](https://travis-ci.org/opensds/opensds)
@@ -8,7 +8,7 @@
 
 ## How to contribute
 
-opensds is Apache 2.0 licensed and accepts contributions via GitHub pull requests. This document outlines some of the conventions on commit message formatting, contact points for developers and other resources to make getting your contribution into opensds easier.
+SODA is Apache 2.0 licensed and accepts contributions via GitHub pull requests. This document outlines some of the conventions on commit message formatting, contact points for developers and other resources to make getting your contribution into SODA easier.
 
 ## Email and chat
 
@@ -30,9 +30,9 @@ For those who just get in touch with this project recently, here is a proposed c
 
 ### Code style
 
-The coding style suggested by the Golang community is used in opensds. See the [doc](https://github.com/golang/go/wiki/CodeReviewComments) for more details.
+The coding style suggested by the Golang community is used in SODA. See the [doc](https://github.com/golang/go/wiki/CodeReviewComments) for more details.
 
-Please follow this style to make opensds easy to review, maintain and develop.
+Please follow this style to make SODA easy to review, maintain and develop.
 
 ### Report issues
 
@@ -40,7 +40,7 @@ A great way to contribute to the project is to send a detailed report when you e
 
 When reporting issues, refer to this format:
 
-- What version of env (opensds, os, golang etc) are you using?
+- What version of env (SODA, os, golang etc) are you using?
 - Is this a BUG REPORT or FEATURE REQUEST?
 - What happened?
 - What you expected to happen?
