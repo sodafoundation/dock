@@ -2,11 +2,11 @@
 
 ## 1. Purpose
 
-A primary goal of OpenSDS is to be inclusive to the largest number of contributors, with the most varied and diverse backgrounds possible. As such, we are committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
+A primary goal of SODA is to be inclusive to the largest number of contributors, with the most varied and diverse backgrounds possible. As such, we are committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
 
 This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behavior.
 
-We invite all those who participate in OpenSDS to help us create safe and positive experiences for everyone.
+We invite all those who participate in SODA to help us create safe and positive experiences for everyone.
 
 ## 2. Open Source Citizenship
 
@@ -61,7 +61,7 @@ Additionally, community organizers are available to help community members engag
 
 ## 7. Addressing Grievances
 
-If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify OpenSDS with a concise description of your grievance. Your grievance will be handled in accordance with our existing governing policies.
+If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify SODA with a concise description of your grievance. Your grievance will be handled in accordance with our existing governing policies.
 
 [Policy](https://github.com/opensds/opensds/blob/master/LICENSE)
 

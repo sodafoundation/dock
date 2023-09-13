@@ -1,4 +1,4 @@
-// Copyright 2017 The OpenSDS Authors.
+// Copyright 2017 The SODA Authors.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -430,7 +430,7 @@ var (
 			Description: "This is the first sample snapshot for testing",
 			Size:        int64(1),
 			Status:      "available",
-			VolumeId:    "bd5b12a8-a101-11e7-941e-d77981b584d8",		},
+			VolumeId:    "bd5b12a8-a101-11e7-941e-d77981b584d8"},
 		{
 			BaseModel: &model.BaseModel{
 				Id: "3bfaf2cc-a102-11e7-8ecb-63aea739d755",
@@ -547,7 +547,6 @@ var (
 // For how to ultilize these pre-assigned variables, please refer to
 // (github.com/sodafoundation/dock/client/dock_test.go).
 var (
-
 	ByteDock = `{
 		"id": "b7602e18-771e-11e7-8f38-dbd6d291f4e0",
 		"name":        "sample",
@@ -959,7 +958,6 @@ var (
 // For how to ultilize these pre-assigned variables, please refer to
 // (github.com/sodafoundation/dock/pkg/db/drivers/etcd/etcd_test.go).
 var (
-
 	StringSliceDocks = []string{
 		`{
 			"id": "b7602e18-771e-11e7-8f38-dbd6d291f4e0",

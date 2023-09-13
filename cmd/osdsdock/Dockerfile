@@ -1,7 +1,7 @@
 # Docker build usage:
 # 	docker build . -t sodafoundation/dock:latest
 # Docker run usage:
-# 	docker run -d --privileged=true --net=host -v /etc/opensds:/etc/opensds sodafoundation/dock:latest
+# 	docker run -d --privileged=true --net=host -v /etc/SODA:/etc/SODA sodafoundation/dock:latest
 
 FROM ubuntu:16.04
 

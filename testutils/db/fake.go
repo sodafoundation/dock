@@ -1,4 +1,4 @@
-// Copyright 2017 The OpenSDS Authors.
+// Copyright 2017 The SODA Authors.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -215,7 +215,7 @@ func (fc *FakeDbClient) ListDocks(ctx *c.Context) ([]*model.DockSpec, error) {
 	return dcks, nil
 }
 
-//ListAvailabilityZones
+// ListAvailabilityZones
 func (fc *FakeDbClient) ListAvailabilityZones(ctx *c.Context) ([]string, error) {
 	var azs []string
 	for i := range SamplePools {
